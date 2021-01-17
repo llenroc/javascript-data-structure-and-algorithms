@@ -1,4 +1,10 @@
 console.log("Google Interview Exercise");
+// Clarification 
+// Think out loud 
+// Talk before you write
+// Test your solution
+
+
 
 /*
 Problem statement 
