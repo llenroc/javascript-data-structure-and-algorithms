@@ -8,6 +8,14 @@ JavaScript Objects are hash table
 3. delete = O(1)
 4. search = O(1)
 
+
+1. Fast lookups * ( Good collision resolution needed )
+2. Fast inserts 
+3. Flexible Keys 
+4. Unordered 
+5. Slow key iteration 
+
+
 ES5
 key should be only string 
 

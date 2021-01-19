@@ -1,4 +1,23 @@
 /*
+// HashTable vs Array
+
+// HashTable 
+1. Search - O(1)
+2. Insert - O(1)
+3. lookup - O(1)
+4. delete - O(1)
+
+// Array
+1. Search - O(n)
+2. lookup - O(1)
+3. push -  O(1)
+4. Insert - O(n)
+5. delete - O(n)
+
+
+
+
+
 Thought process
 
 1. hash map is providing the index loaction on which we need to store elements 
@@ -16,7 +35,9 @@ Thought process
 
 // For keys()
 1. find all the filled location 
-2. collect the keys 
+2. collect the keys from each bucket 
+
+
 
 */
 
@@ -54,14 +75,14 @@ class HashTable {
     return undefined;
   }
 
-  keys() { // O(n2)
+  keys() { // O(a * b)
     const keyArray = [];
     // loop through all the data elements 
-    for( let i = 0; i < this.data.length; i++) { // O(n)
+    for( let i = 0; i < this.data.length; i++) { // O(1)
       const currentBucket = this.data[i];
       // check for all elements in each bucket
       if(currentBucket && currentBucket.length > 0) {
-        for (let j = 0; j < currentBucket.length; j++) { // O(n)
+        for (let j = 0; j < currentBucket.length; j++) { // O(b)
           keyArray.push(currentBucket[j][0]);
         }
       }
