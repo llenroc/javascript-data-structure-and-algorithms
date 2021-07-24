@@ -31,3 +31,5 @@ function binarySearch(list, item) {
 console.log(`Index of 90 in [2,6,7,90,103] is ${binarySearch([2,6,7,90,103], 90)}`);
 console.log(`Index of 6 in [2,6,7,90,103] is ${binarySearch([2,6,7,90,103], 6)}`);
 console.log(`Index of 13 in [2,6,7,90,103] is ${binarySearch([2,6,7,90,103], 13)}`);
+
+// Time complexity - O(log(n))
