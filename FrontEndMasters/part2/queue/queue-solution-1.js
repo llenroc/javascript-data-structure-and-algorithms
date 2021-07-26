@@ -1,3 +1,5 @@
+// https://replit.com/@bgando/queue-solution-1?v=1
+
 /** Class representing a Queue. 
  * @constructor
 */
@@ -70,3 +72,5 @@ myQ.enqueue('two');
 //   headIndex: 1
 // }
 console.log(myQ);
+
+

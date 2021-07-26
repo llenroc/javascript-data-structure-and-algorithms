@@ -1,3 +1,10 @@
+/**
+  String are immutable, means you can not swap characters in a string, but in an array you can swap it.
+ */
+
+
+
+
 /** Class representing an Aray, a fictional data 
 * structure similar to an array except that the 
 * underlying storage is a string 
