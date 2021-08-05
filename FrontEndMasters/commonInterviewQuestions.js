@@ -53,5 +53,60 @@ Q4. Write a function encodes a string by turning all spaces into `%20`.
 
 Q5. Merge two sorted lists into one list.
 
+
+~~~~~~~~~~ Tree ~~~~~~~~~~~~~ 
+
+Q1. Tries 
+
+Q2. 
+
+~~~~~~~~~~ Common tasks for BFS / DFS ~~~~~~~~~~~~~ 
+Q1. Logging or validating the contents of each edge and/or vertex.
+
+Q2. Copying a graph, or converting between adjacency matrix or list.
+
+Q3. Counting the number of edges and/or vertices.
+
+Q4. Identifying the connected components 
+
+Q5. Finding paths or cycles between two vertices
+
+
+~~~~~~~~~~ Graphs ~~~~~~~~~~~~~ 
+
+Q1. Directed, Undirected 
+
+Q2. Weighted, Unweighted
+
+Q3. Self loop
+
+Q4. Sparse, Dense
+
+Q5. Cyclic, Acyclic 
+
+
+
+
+~~~~~~~~~~ Searching ~~~~~~~~~~~~~ 
+
+Linear search -> O(n)
+Binary search -> O(Log(n))
+  - Always for sorted list ( TC for sorting nlog(n))
+  - Psudo code 
+      firstIndex = 0;
+      lastIndex = 5;
+      mid = Math.floor((lastIndex - firstIndex) / 2 ) = 2 
+
+
+~~~~~~~~~~ Binary serach Tree ~~~~~~~~~~~~~ 
+
+Q1. Balanced, Unbalanced 
+
+Q2. height of the tree. 
+
+Q3. 
+
+
+
  */
 
