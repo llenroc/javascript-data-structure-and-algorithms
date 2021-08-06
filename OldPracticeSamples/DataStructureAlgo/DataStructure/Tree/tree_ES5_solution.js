@@ -85,6 +85,7 @@ https://en.wikipedia.org/wiki/Trie
     // Time complexity: O(n)
     
     
+    // This solution is wrong  - XXXX
     Tree.prototype.traverseDepthFirst = function(fn) {
     // implement me...
         this.children.forEach(function(child){
