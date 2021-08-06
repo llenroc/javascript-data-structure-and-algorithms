@@ -192,7 +192,16 @@ class BinarySearchTree {
     // true/false
     // A binary tree is full if every node has either zero or two children (no nodes have only one child)
     checkIfFull() {
-
+      const queue = [this];
+      while(queue.length) {
+        const currentNode = queue.shift();
+        if((currentNode.left && !currentNode.right) || (!currentNode.left && currentNode.right)) {
+            return false;
+        }
+        currentNode.left && queue.push(currentNode.left);
+        currentNode.right && queue.push(currentNode.right);
+      }
+      return true;
     }
 
     checkIfBalanced() {
@@ -438,10 +447,17 @@ console.log(`inOrder1 [3,4,6,7,8,10,13,14] `, inOrder1);
 
 myBST.insert(1);   // [ 1, 3, 4, 6, 7, 8, 10, 13, 14 ]
 myBST.deleteMax(); // [ 1, 3, 4, 6, 7, 8, 10, 13 ]
-// myBST.deleteMax(); // [ 1, 3, 4, 6, 7, 8, 10 ]
+myBST.deleteMax(); // [ 1, 3, 4, 6, 7, 8, 10 ]
 // myBST.deleteMax(); // [ 1, 3, 4, 6, 7, 8 ]
 // myBST.deleteMax(); // [ 1, 3, 4, 6, 7 ]
 
 const inOrder2 = [];
 myBST.traverseDepthFirst_inOrder((node) => inOrder2.push(node.value));
-console.log(`\n\n myBST.deleteMax() [ 1, 3, 4, 6, 7, 8, 10, 13 ] `, inOrder2);
+console.log(`\n\n myBST.deleteMax() [ 1, 3, 4, 6, 7, 8, 10 ] \n`, inOrder2);
+
+
+console.log(`myBST.checkIfFull() = ${myBST.checkIfFull()} \n`); // True
+
+myBST.insert(9); // [ 1, 3, 4, 6, 7, 8, 9, 10 ]
+
+console.log(`myBST.checkIfFull() = ${myBST.checkIfFull()} \n`); // false
