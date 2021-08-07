@@ -204,8 +204,32 @@ class BinarySearchTree {
       return true;
     }
 
-    checkIfBalanced() {
 
+    /* 
+      => true/false
+      For this exercise, let's say that a tree is balanced if the minimum height and the maximum height differ by no more than 1. The height for a branch is the number of levels below the root.
+    */
+    // Calculate height of all leaf nodes and put it in an array
+    // Get min value and max value from the array
+    // if maxHeight - minHeight <= 1 => return true otherwise false
+
+    // breadthFirst
+
+    checkIfBalanced() {
+      // implement me...
+        var heights = [];
+        var recursive = function(node, height) {
+            if(!node.left && !node.right) heights.push(height);
+            !!node.left && recursive(node.left, height+1);
+            !!node.right && recursive(node.right, height+1);
+        }
+
+        // it's 0 if you consider the height as a edge count (so that a single node doesn't have any edge, hence 0)
+        // it's 1 if you consider the height as a node count (so that a single node counts as 1)
+        recursive(this, 1);
+        var max = Math.max.apply(null, heights);
+        var min = Math.min.apply(null, heights);
+        return max-min <= 1;
     }
 
 
@@ -461,3 +485,39 @@ console.log(`myBST.checkIfFull() = ${myBST.checkIfFull()} \n`); // True
 myBST.insert(9); // [ 1, 3, 4, 6, 7, 8, 9, 10 ]
 
 console.log(`myBST.checkIfFull() = ${myBST.checkIfFull()} \n`); // false
+
+console.log(`myBST.checkIfBalanced() = ${myBST.checkIfBalanced()} \n`); // true
+
+myBST.deleteMax(); // [ 1, 3, 4, 6, 7, 8, 9 ]
+
+console.log(`myBST.checkIfBalanced() = ${myBST.checkIfBalanced()} \n`); // false
+
+
+
+
+
+const BST1 = new BinarySearchTree(50); 
+  BST1.left = new BinarySearchTree(17);
+  BST1.left.left = new BinarySearchTree(12);
+  BST1.left.right = new BinarySearchTree(23);
+  BST1.left.left.left = new BinarySearchTree(9);
+  BST1.left.left.right = new BinarySearchTree(14);
+  BST1.left.right.left = new BinarySearchTree(19);
+  
+  BST1.right = new BinarySearchTree(72);
+  BST1.right.left = new BinarySearchTree(54);
+  BST1.right.right = new BinarySearchTree(76);
+  BST1.right.left.right = new BinarySearchTree(67);
+
+console.log(`BST1.checkIfBalanced() = ${BST1.checkIfBalanced()} \n`); // true
+
+  const BST2 = new BinarySearchTree(1);
+    BST2.right = new BinarySearchTree(2);
+    BST2.right.right = new BinarySearchTree(3);
+    BST2.right.right.right = new BinarySearchTree(4);
+    BST2.right.right.right.right = new BinarySearchTree(6);
+    BST2.right.right.right.right.left = new BinarySearchTree(5);
+    BST2.right.right.right.right.right = new BinarySearchTree(7);
+    BST2.right.right.right.right.right.right = new BinarySearchTree(8);
+
+console.log(`BST1.checkIfBalanced() = ${BST2.checkIfBalanced()} \n`); // true
