@@ -341,8 +341,28 @@ class BinarySearchTree {
     //Given a binary tree. Print the number of leaf nodes in the tree.
     //Approach-1:- Using InOrder Traversal
     //Approach-2:- Using recursive 
-    printLeafNodes() {
+    printLeafNodesTraversal() {
+      const nodeList = [];
+      this.traverseDepthFirst_inOrder((node) => {
+        if(!node.left && !node.right) {
+            nodeList.push(node.value);
+        }
+      });
+      return nodeList;
+    }
 
+    //Given a binary tree. Print the number of leaf nodes in the tree.
+    //Approach-2:- Using recursive 
+    printLeafNodesRecursive() {
+      const nodeList = [];
+      const recursive = (tree) => {
+        if(!tree) return;
+        if(!tree.left && !tree.right) nodeList.push(tree.value);
+        !!tree.left && recursive(tree.left);
+        !!tree.right && recursive(tree.right);
+      }
+      recursive(this);
+      return nodeList;
     }
 
     //Print all ROOT to LEAF paths in a binary tree
@@ -642,5 +662,14 @@ var sumTree = new BinarySearchTree(56);
     sumTree.right.right.right = new BinarySearchTree(1);
 
 console.log(`\n sumTree.isSumTree() true = ${sumTree.isSumTree()} \n`);
+
+console.log(`\n myBST.printLeafNodesTraversal() [ 1,4,7,9 ] = ${myBST.printLeafNodesTraversal()} \n`);
+console.log(`\n sumTree.printLeafNodesTraversal() [ 3,2,3,9,2,1 ] = ${sumTree.printLeafNodesTraversal()} \n`);
+console.log(`\n BST1.printLeafNodesTraversal() [ 9,14,19,67,76 ] = ${BST1.printLeafNodesTraversal()} \n`);
+
+
+console.log(`\n myBST.printLeafNodesRecursive() [ 1,4,7,9 ] = ${myBST.printLeafNodesRecursive()} \n`);
+console.log(`\n sumTree.printLeafNodesRecursive() [ 3,2,3,9,2,1 ] = ${sumTree.printLeafNodesRecursive()} \n`);
+console.log(`\n BST1.printLeafNodesRecursive() [ 9,14,19,67,76 ] = ${BST1.printLeafNodesRecursive()} \n`);
 
 
