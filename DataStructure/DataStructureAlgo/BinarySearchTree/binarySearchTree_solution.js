@@ -277,9 +277,47 @@ class BinarySearchTree {
       )
     }
 
-    //Given two binary. Check whether one tree is a subtree of another tree.
-    isSubTree() {
 
+    //Given two binary tree. Check whether one tree is a subtree of another tree.
+    isSubTree(tree1, tree2) {
+      if(!tree1 && !tree2) return true;
+      if(!tree1 || !tree2) return false;
+      if(tree1.value === tree2.value) {
+          return this.isIdentical(tree1, tree2);
+      };
+      return (!!tree1.left && this.isSubTree(tree1.left, tree2)) || 
+             (!!tree1.right && this.isSubTree(tree1.right, tree2));
+    }
+ 
+    // Part of below problem -  isSubTreeTwoBST ( for TWO BINARY SEARCH TREE )
+    search(tree, value) {
+      let currentTree = tree;
+      while(currentTree) {
+        if(currentTree.value === value) {
+          return currentTree;
+        }
+
+        if(currentTree.value > value ) {
+          currentTree = currentTree.left;
+        } else {
+          currentTree = currentTree.right;
+        }
+      }
+      return -1;
+    }
+
+    //Given TWO BINARY SEARCH TREE. Check whether one tree is a subtree of another tree.
+    // Step1 - If both are null return true 
+    // Step2 - Search Tree2 in Tree1 
+    // Step3 - If found check identical 
+    isSubTreeTwoBST(tree1, tree2) {
+      if(!tree1 && !tree2) return true;
+      if(!tree1 || !tree2) return false;
+      const foundNode = this.search(tree1, tree2.value);
+      if (foundNode !== -1) {
+        return this.isIdentical(foundNode, tree2);
+      }
+      return false;
     }
 
     //Calculate sum of all nodes in given Binary Tree.
@@ -547,7 +585,32 @@ var tree3 = new BinarySearchTree('a');
 tree3.left = new BinarySearchTree('c');
 tree3.right = new BinarySearchTree('b');
 
+
+
 console.log("Tree.isMirror() => ", myBST.isMirror(tree1, tree2));
 console.log("Tree.isMirror() => ", myBST.isMirror(tree2, tree3));
 console.log("Tree.isIdentical() => ", myBST.isIdentical(tree2, tree3));
 console.log("Tree.isIdentical() => ", myBST.isIdentical(tree1, tree2));
+
+
+var tree4 = new BinarySearchTree('c');
+tree4.left = new BinarySearchTree('f');
+tree4.right = new BinarySearchTree('g');
+
+tree1.left.left = new BinarySearchTree('d');
+tree1.left.right = new BinarySearchTree('e');
+
+tree1.right.left = new BinarySearchTree('f');
+tree1.right.right = new BinarySearchTree('g');
+
+console.log(" \n Tree2 is subTree of Tree1 =>  false = ", myBST.isSubTree(tree1, tree2));
+console.log("Tree3 is subTree of Tree1 =>  false = ", myBST.isSubTree(tree1, tree3));
+console.log("Tree2 is subTree of Tree3 =>  true = ", myBST.isSubTree(tree2, tree3));
+console.log("Tree4 is subTree of Tree1 =>  true = ", myBST.isSubTree(tree1, tree4));
+
+console.log(`\n\n Example 1 BST1 is isSubTreeTwoBST of BST2 =>  false = `, myBST.isSubTreeTwoBST(BST1, BST2));
+console.log(`\n Example 2 ${BST1.left.left.value} is isSubTreeTwoBST of BST1 =>  true = `, myBST.isSubTreeTwoBST(BST1, BST1.left.left));
+console.log(`\n Example 3 ${BST1.right.value} is isSubTreeTwoBST of BST1 =>  true = `, myBST.isSubTreeTwoBST(BST1, BST1.right));
+
+
+
