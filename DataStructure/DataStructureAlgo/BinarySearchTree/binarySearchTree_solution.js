@@ -322,12 +322,20 @@ class BinarySearchTree {
 
     //Calculate sum of all nodes in given Binary Tree.
     sumOfAllNodes() {
-
+      let sum = 0;
+      this.traverseBreadthFirst((node) => {
+        sum += node.value;
+      });
+      return sum;
     }
 
     // Given a binary tree , check if it is a sumTree or not.
     isSumTree() {
-
+      if(!this) return true;
+      if(!this.left && !this.right) return true;
+      return (this.value === (this.left.sumOfAllNodes() + this.right.sumOfAllNodes())) &&
+       !!this.left && this.left.isSumTree() &&
+       !!this.right && this.right.isSumTree();
     }
 
     //Given a binary tree. Print the number of leaf nodes in the tree.
@@ -612,5 +620,27 @@ console.log(`\n\n Example 1 BST1 is isSubTreeTwoBST of BST2 =>  false = `, myBST
 console.log(`\n Example 2 ${BST1.left.left.value} is isSubTreeTwoBST of BST1 =>  true = `, myBST.isSubTreeTwoBST(BST1, BST1.left.left));
 console.log(`\n Example 3 ${BST1.right.value} is isSubTreeTwoBST of BST1 =>  true = `, myBST.isSubTreeTwoBST(BST1, BST1.right));
 
+
+console.log(`\n BST1.sumOfAllNodes() = ${BST1.sumOfAllNodes()} \n`);
+
+console.log(`\n BST1.isSumTree() false = ${BST1.isSumTree()} \n`);
+
+
+var sumTree = new BinarySearchTree(56);
+    sumTree.left = new BinarySearchTree(13);
+    sumTree.right = new BinarySearchTree(15);
+
+    sumTree.left.left = new BinarySearchTree(5);
+    sumTree.left.right = new BinarySearchTree(3);
+
+    sumTree.left.left.left = new BinarySearchTree(3);
+    sumTree.left.left.right = new BinarySearchTree(2);
+
+    sumTree.right.left = new BinarySearchTree(9);
+    sumTree.right.right = new BinarySearchTree(3);
+    sumTree.right.right.left = new BinarySearchTree(2);
+    sumTree.right.right.right = new BinarySearchTree(1);
+
+console.log(`\n sumTree.isSumTree() true = ${sumTree.isSumTree()} \n`);
 
 
