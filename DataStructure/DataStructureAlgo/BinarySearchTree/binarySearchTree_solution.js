@@ -213,8 +213,6 @@ class BinarySearchTree {
     // Get min value and max value from the array
     // if maxHeight - minHeight <= 1 => return true otherwise false
 
-    // breadthFirst
-
     checkIfBalanced() {
       // implement me...
         var heights = [];
@@ -234,8 +232,16 @@ class BinarySearchTree {
 
 
     //Given two binary trees. Check whether they are mirror reflections of each other or not.
-    isMirror() {
-
+    isMirror(tree1, tree2) {
+        if(!tree1 && !tree2) return true;
+        if((tree1 && !tree2) || (!tree1 && tree2)) return false;
+        if(tree1.value !== tree2.value) return false;
+        
+        return (
+          tree1.value === tree2.value &&
+          this.isMirror(tree1.left, tree2.right) &&
+          this.isMirror(tree1.right, tree2.left)
+        ) 
     }
 
 
@@ -261,8 +267,14 @@ class BinarySearchTree {
     //Given two binary trees, write a program to check whether they are identical.
     //Approach 1 :- Recursive 
     //Approach 2 :- Comapre InOrder, PreOrder and PostOrder 
-    isIdentical() {
-
+    isIdentical(tree1, tree2) {
+      if(!tree1 && !tree2) return true;
+      if((tree1 && !tree2) || (!tree1 && tree2)) return false;
+      return (
+        tree1.value === tree2.value &&
+        this.isIdentical(tree1.left, tree2.left) &&
+        this.isIdentical(tree1.right, tree2.right)
+      )
     }
 
     //Given two binary. Check whether one tree is a subtree of another tree.
@@ -521,3 +533,21 @@ console.log(`BST1.checkIfBalanced() = ${BST1.checkIfBalanced()} \n`); // true
     BST2.right.right.right.right.right.right = new BinarySearchTree(8);
 
 console.log(`BST1.checkIfBalanced() = ${BST2.checkIfBalanced()} \n`); // true
+
+
+var tree1 = new BinarySearchTree('a');
+tree1.left = new BinarySearchTree('b');
+tree1.right = new BinarySearchTree('c');
+
+var tree2 = new BinarySearchTree('a');
+tree2.left = new BinarySearchTree('c');
+tree2.right = new BinarySearchTree('b');
+
+var tree3 = new BinarySearchTree('a');
+tree3.left = new BinarySearchTree('c');
+tree3.right = new BinarySearchTree('b');
+
+console.log("Tree.isMirror() => ", myBST.isMirror(tree1, tree2));
+console.log("Tree.isMirror() => ", myBST.isMirror(tree2, tree3));
+console.log("Tree.isIdentical() => ", myBST.isIdentical(tree2, tree3));
+console.log("Tree.isIdentical() => ", myBST.isIdentical(tree1, tree2));
