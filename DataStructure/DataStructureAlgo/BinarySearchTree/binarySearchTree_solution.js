@@ -365,9 +365,33 @@ class BinarySearchTree {
       return nodeList;
     }
 
-    //Print all ROOT to LEAF paths in a binary tree
+   
+ 
     allRootToLeafPath() {
+      const printTreeArray = (array) => {
+        const printArray = [];
+        array.forEach(item => printArray.push(item.value));
+        console.log(printArray);
+      }
+    
+      const stack = [];
+      const inOrder = (tree) => {
+        if(!tree) return null;
+        stack.push(tree);
 
+        !!tree.left && inOrder(tree.left);
+
+        if(!tree.left && !tree.right) {
+          printTreeArray(stack);
+        }
+
+        !!tree.right && inOrder(tree.right);
+
+        stack.pop();
+
+      }
+      
+      inOrder(this);      
     }
 
     //Level Order Traversal of a Binary Tree (level by level and as a whole).
@@ -671,5 +695,9 @@ console.log(`\n BST1.printLeafNodesTraversal() [ 9,14,19,67,76 ] = ${BST1.printL
 console.log(`\n myBST.printLeafNodesRecursive() [ 1,4,7,9 ] = ${myBST.printLeafNodesRecursive()} \n`);
 console.log(`\n sumTree.printLeafNodesRecursive() [ 3,2,3,9,2,1 ] = ${sumTree.printLeafNodesRecursive()} \n`);
 console.log(`\n BST1.printLeafNodesRecursive() [ 9,14,19,67,76 ] = ${BST1.printLeafNodesRecursive()} \n`);
+
+
+
+BST1.allRootToLeafPath();
 
 
