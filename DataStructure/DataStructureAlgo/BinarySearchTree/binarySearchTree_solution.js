@@ -446,8 +446,30 @@ class BinarySearchTree {
     }
 
     // Find lowest common ancestor of two nodes in a binary tree. - postOrderTraversal
-    lowestCommonAncestor(tree, value1, value2) {
+    //Youtube -  https://www.youtube.com/watch?v=F-_1sbnPbWQ
+    // Step1 - Search two node in Binary tree
+    // Step2 - If (node found) 
+    //              return node;
+    //         else 
+    //              return null
+    // Step3 - IF - When some node receives both left and right as not null  
+    //.         then it is the LCA
+    //         else - return what it receives
 
+
+
+    lowestCommonAncestor(tree, value1, value2) {
+      if(!tree) return null;
+      if(tree.value === value1 || tree.value === value2) {
+        return tree;
+      }
+      const left = this.lowestCommonAncestor(tree.left, value1, value2);
+      const right = this.lowestCommonAncestor(tree.right, value1, value2);
+
+      if(left && right) {
+        return tree.value;
+      }
+      return !!left ? left : right;
     }
 
      //Nodes having 'K' leaves in its SubTree Algorithm - postOrderTraversal
@@ -701,3 +723,6 @@ console.log(`\n BST1.printLeafNodesRecursive() [ 9,14,19,67,76 ] = ${BST1.printL
 BST1.allRootToLeafPath();
 
 
+
+
+console.log(`\n BST1.lowestCommonAncestor(12, 23) --> 17 = ${BST1.lowestCommonAncestor(BST1, 12, 23)} \n`);
