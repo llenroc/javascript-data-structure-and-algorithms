@@ -394,53 +394,9 @@ class BinarySearchTree {
       inOrder(this);      
     }
 
-    //Level Order Traversal of a Binary Tree (level by level and as a whole).
-    //Explanation in detail for both representations of level order traversal.
-
-    //Level Order Traversal
-    levelOrderTraverse() {
-
-    }
-
-    printLevelOrderTraverse() {
-
-    }
-
-    //Traverse through the diagonal elements in a binary tree.
-    printDiagonalElements() {
-
-    }
-
-    //write an algorithm to make vertical order traversal of a binary
-    verticalOrderTraversal() {
-
-    }
-
-    //Print the top and Bottom view of a Binary Tree. We use level order traversal and vertical order traversal for this.
-    printTopView() {
-
-    }
-
-    bottomView() {
-
-    }
-
-    //Side view of binary tree. Left side view and right side view.
-    leftSideView() {
-
-    }
-
-    rightSideView(tree) {
-
-    }
-
-    //Print the sum of every diagonal in binary tree.
-    digonalSum(tree) {
-
-    }
-
-
+    
     // Find All common ancestor of two nodes in a binary tree.
+    // Youtube - https://www.youtube.com/watch?v=qjD-CmuC0MQ
     /**
      * Step1- Traverse In order 
      * Step2- Search value1 and Value2 in the tree
@@ -495,7 +451,25 @@ class BinarySearchTree {
     }
 
      //Nodes having 'K' leaves in its SubTree Algorithm - postOrderTraversal
+     // https://www.youtube.com/watch?v=u2O11mengx8
     nodeHavingKLeaves(tree, k, count) {
+      if(!tree) return 0;
+      if (!tree.left && !tree.right) {
+        return !!count ? ++count : 1;
+      }
+      const left =  this.nodeHavingKLeaves(tree.left, k, count) || 0;
+      const right = this.nodeHavingKLeaves(tree.right, k, count) || 0;
+      if (left + right === k) {
+        console.log(tree.value);
+      }
+      return left + right;
+    }
+
+    heightOfABinaryTree() {
+      
+    }
+
+    diameterOfBinaryTree() {
 
     }
 
@@ -503,6 +477,51 @@ class BinarySearchTree {
     //Print Root to Leaf Path with Given sum(Print all K-Sum paths) in a given Binary Tree
     //Print all K-sum paths in the given Binary tre
     printRootToLeafPathWithSum() {
+
+    }
+
+    //Level Order Traversal of a Binary Tree (level by level and as a whole).
+    //Explanation in detail for both representations of level order traversal.
+
+    //Level Order Traversal
+    levelOrderTraverse() {
+
+    }
+
+    printLevelOrderTraverse() {
+
+    }
+
+    //Traverse through the diagonal elements in a binary tree.
+    printDiagonalElements() {
+
+    }
+
+    //write an algorithm to make vertical order traversal of a binary
+    verticalOrderTraversal() {
+
+    }
+
+    //Print the top and Bottom view of a Binary Tree. We use level order traversal and vertical order traversal for this.
+    printTopView() {
+
+    }
+
+    bottomView() {
+
+    }
+
+    //Side view of binary tree. Left side view and right side view.
+    leftSideView() {
+
+    }
+
+    rightSideView(tree) {
+
+    }
+
+    //Print the sum of every diagonal in binary tree.
+    digonalSum(tree) {
 
     }
 
@@ -515,15 +534,8 @@ class BinarySearchTree {
 
     }
 
-    heightOfABinaryTree() {
-
-    }
 
     isTwoBinaryIsomorphic() {
-
-    }
-
-    diameterOfBinaryTree() {
 
     }
 
@@ -752,3 +764,16 @@ console.log(`\n LCA (9, 67) --> 50 = ${BST1.lowestCommonAncestor(BST1, 9, 67).va
 console.log(`\n ACA (17, 72) --> 50 = ${BST1.allCommonAncestor(BST1, 17, 72)} \n`);
 console.log(`\n ACA (9, 14) --> 12, 17, 50 = ${BST1.allCommonAncestor(BST1, 9, 14)} \n`);
 console.log(`\n ACA (9, 19) --> 17, 50 = ${BST1.allCommonAncestor(BST1, 9, 19)} \n`);
+
+BST1.nodeHavingKLeaves(BST1, 1); // 23, 54
+console.log("\n");
+BST1.nodeHavingKLeaves(BST1, 2); // 12, 72
+console.log("\n");
+BST1.nodeHavingKLeaves(BST1, 3); // 17
+console.log("\n");
+
+BST1.nodeHavingKLeaves(BST1, 4); // No node
+console.log("\n");
+
+
+
