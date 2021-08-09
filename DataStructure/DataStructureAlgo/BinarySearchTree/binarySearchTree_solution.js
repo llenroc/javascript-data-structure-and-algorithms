@@ -441,12 +441,36 @@ class BinarySearchTree {
 
 
     // Find All common ancestor of two nodes in a binary tree.
+    /**
+     * Step1- Traverse In order 
+     * Step2- Search value1 and Value2 in the tree
+     * Step3 - If value1 and value2 found in sub tree of any node.. Push that node in the stack 
+     */
     allCommonAncestor(tree, value1, value2) {
+      const stack = [];
+      const checkValueInTree = (tree, value) => {
+        if(!tree) return null;
+        if(tree.value === value) return true;
+        return (!!tree.left && checkValueInTree(tree.left, value)) ||
+               (!!tree.right && checkValueInTree(tree.right, value));
+      }
 
+      const recursive = (tree, value1, value2) => {
+        if(!tree) return null;
+        !!tree.left && recursive(tree.left, value1, value2);
+        !!tree.right && recursive(tree.right, value1, value2);
+
+        if(checkValueInTree(tree, value1) && checkValueInTree(tree, value2)) {
+          stack.push(tree.value);
+        }
+      }
+      recursive(tree, value1, value2);
+      return stack;
     }
 
     // Find lowest common ancestor of two nodes in a binary tree. - postOrderTraversal
     //Youtube -  https://www.youtube.com/watch?v=F-_1sbnPbWQ
+
     // Step1 - Search two node in Binary tree
     // Step2 - If (node found) 
     //              return node;
@@ -455,8 +479,6 @@ class BinarySearchTree {
     // Step3 - IF - When some node receives both left and right as not null  
     //.         then it is the LCA
     //         else - return what it receives
-
-
 
     lowestCommonAncestor(tree, value1, value2) {
       if(!tree) return null;
@@ -467,7 +489,7 @@ class BinarySearchTree {
       const right = this.lowestCommonAncestor(tree.right, value1, value2);
 
       if(left && right) {
-        return tree.value;
+        return tree;
       }
       return !!left ? left : right;
     }
@@ -719,10 +741,14 @@ console.log(`\n sumTree.printLeafNodesRecursive() [ 3,2,3,9,2,1 ] = ${sumTree.pr
 console.log(`\n BST1.printLeafNodesRecursive() [ 9,14,19,67,76 ] = ${BST1.printLeafNodesRecursive()} \n`);
 
 
-
 BST1.allRootToLeafPath();
 
 
+console.log(`\n LCA (12, 23) --> 17 = ${BST1.lowestCommonAncestor(BST1, 12, 23).value} \n`);
+console.log(`\n LCA (12, 9) --> 12 = ${BST1.lowestCommonAncestor(BST1, 12, 9).value} \n`);
+console.log(`\n LCA (9, 67) --> 50 = ${BST1.lowestCommonAncestor(BST1, 9, 67).value} \n`);
 
 
-console.log(`\n BST1.lowestCommonAncestor(12, 23) --> 17 = ${BST1.lowestCommonAncestor(BST1, 12, 23)} \n`);
+console.log(`\n ACA (17, 72) --> 50 = ${BST1.allCommonAncestor(BST1, 17, 72)} \n`);
+console.log(`\n ACA (9, 14) --> 12, 17, 50 = ${BST1.allCommonAncestor(BST1, 9, 14)} \n`);
+console.log(`\n ACA (9, 19) --> 17, 50 = ${BST1.allCommonAncestor(BST1, 9, 19)} \n`);
