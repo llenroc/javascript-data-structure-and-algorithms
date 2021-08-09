@@ -482,7 +482,16 @@ class BinarySearchTree {
     // https://www.youtube.com/watch?v=ey7DYc9OANo 
 
     diameterOfBinaryTree(tree) {
-      
+      if(!tree) return 0;
+      const leftHeight = this.heightOfABinaryTree(tree.left);
+      const rightHeight = this.heightOfABinaryTree(tree.right);
+      const leftDiameter = this.diameterOfBinaryTree(tree.left);
+      const rightDiameter = this.diameterOfBinaryTree(tree.right);
+
+      const rootNodeDiameter = leftHeight + rightHeight + 1;
+      const subTreeDiameter = Math.max(leftDiameter, rightDiameter);
+      const finalDiameter = Math.max(rootNodeDiameter, subTreeDiameter);
+      return finalDiameter;
     }
 
 
@@ -810,5 +819,8 @@ console.log(`\n heightOfABinaryTree = 7 = ${BST2.heightOfABinaryTree(BST2)} \n`)
 
 BST1.levelOrderTraverse(BST1);
 console.log("\n");
+
+console.log(`\n diameterOfBinaryTree = 7 = ${BST1.diameterOfBinaryTree(BST1)} \n`);
+
 
 
