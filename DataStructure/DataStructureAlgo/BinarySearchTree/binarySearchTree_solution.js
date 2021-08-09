@@ -479,8 +479,10 @@ class BinarySearchTree {
       return Math.max.apply(null, stack);
     }
 
-    diameterOfBinaryTree() {
+    // https://www.youtube.com/watch?v=ey7DYc9OANo 
 
+    diameterOfBinaryTree(tree) {
+      
     }
 
 
@@ -494,8 +496,24 @@ class BinarySearchTree {
     //Explanation in detail for both representations of level order traversal.
 
     //Level Order Traversal
-    levelOrderTraverse() {
-
+    levelOrderTraverse(tree) {
+      const queue = [tree, null];
+      let level = [];
+      while(queue.length) {
+        let currentNode = queue.shift();
+        if(currentNode === null) {
+          console.log(level);
+          level = [];
+          queue.push(null);
+          if(queue[0] === null) {
+            break;
+          }
+        } else {
+          level.push(currentNode.value);
+          !!currentNode.left && queue.push(currentNode.left);
+          !!currentNode.right && queue.push(currentNode.right);
+        }
+      }
     }
 
     printLevelOrderTraverse() {
@@ -788,5 +806,9 @@ console.log("\n");
 
 console.log(`\n heightOfABinaryTree = 4 = ${BST1.heightOfABinaryTree(BST1)} \n`);
 console.log(`\n heightOfABinaryTree = 7 = ${BST2.heightOfABinaryTree(BST2)} \n`);
+
+
+BST1.levelOrderTraverse(BST1);
+console.log("\n");
 
 
