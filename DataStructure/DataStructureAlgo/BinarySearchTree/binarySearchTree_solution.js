@@ -465,8 +465,18 @@ class BinarySearchTree {
       return left + right;
     }
 
-    heightOfABinaryTree() {
-      
+    heightOfABinaryTree(tree) {
+      const stack = [];
+      const recursive = (tree, count) => {
+          if(!tree) return null;
+          if(!tree.left && !tree.right) {
+            stack.push(count);
+          }
+          !!tree.left && recursive(tree.left, count+1);
+          !!tree.right && recursive(tree.right, count+1);
+      }
+      recursive(tree, 1);
+      return Math.max.apply(null, stack);
     }
 
     diameterOfBinaryTree() {
@@ -775,5 +785,8 @@ console.log("\n");
 BST1.nodeHavingKLeaves(BST1, 4); // No node
 console.log("\n");
 
+
+console.log(`\n heightOfABinaryTree = 4 = ${BST1.heightOfABinaryTree(BST1)} \n`);
+console.log(`\n heightOfABinaryTree = 7 = ${BST2.heightOfABinaryTree(BST2)} \n`);
 
 
