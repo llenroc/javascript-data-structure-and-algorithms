@@ -1,4 +1,12 @@
 /*
+
+Sorting Function
+    bubbleSort(list)   -> a sorted list
+        loops through list
+        compares adjacent elements
+        swaps higher item towards the end 
+
+
 pseudocode 
 ===============
     loop for i form 0 to length-2    => O(n-1)

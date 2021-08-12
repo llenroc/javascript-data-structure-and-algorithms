@@ -1,5 +1,10 @@
 /*
 
+Selects the smallest element in an array, pushes it into a new array
+[1, 6, 8, 2, 5]
+[] 
+
+
 pseduocode 
     loop for i from 0 -> n-2            => O(n-1)
         min = arr[i], track             => O(1)

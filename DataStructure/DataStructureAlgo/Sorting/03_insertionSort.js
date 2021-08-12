@@ -1,5 +1,10 @@
 /*
 
+Selects the first element in an array, pushes it into a new array. As each new element is added, insert the new element in the correct order
+
+[1, 6, 8, 2, 5]
+[]
+
 
 Properties:
 O(1) extra space

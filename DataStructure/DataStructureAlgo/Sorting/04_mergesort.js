@@ -1,5 +1,15 @@
 /* 
 
+~~~~~~~~~~~Divide & Conquer ~~~~~~~~~~~~
+Recursive calls to a subset of the problem
+
+Steps for Divide & Conquer:
+0. Recognize base case
+1. Divide: break problem down during each call
+2. Conquer: do work on each subset
+3. Combine: solutions
+
+
 
 Properties:
 O(n) extra space for iterative solution
