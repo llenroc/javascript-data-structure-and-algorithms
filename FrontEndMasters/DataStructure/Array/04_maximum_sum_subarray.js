@@ -1,5 +1,7 @@
 // https://www.youtube.com/watch?v=kekmCQXYwQ0&ab_channel=VivekanandKhyade-AlgorithmEveryDay
 
+/* ~~~~~~~~~~~~~ Kadane's Algorithm ~~~~~~~~~ */
+
 const testArray = [4, -3, -2, 2, 3, 1, -2, -3, 4, 2, -6, -3, -1, 3, 1, 2 ]
 
 
