@@ -1,4 +1,10 @@
 /* 
+Time complexity analysis 
+
+Youtube - https://www.youtube.com/watch?v=g1AwUYauqgg
+Youtube - https://www.youtube.com/watch?v=0nlPxaC2lTw
+
+TC of mergesort - nlog(n)
 
 ~~~~~~~~~~~Divide & Conquer ~~~~~~~~~~~~
 Recursive calls to a subset of the problem
@@ -12,10 +18,12 @@ Steps for Divide & Conquer:
 
 
 Properties:
+not In-place
 O(n) extra space for iterative solution
 O(n·log(n)) time (for worst and best)
 stable - the only stable O(n·log(n)) sorting algorithm
 not adaptive
+
 
 
 Fastest :- 

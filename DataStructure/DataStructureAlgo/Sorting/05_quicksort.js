@@ -1,5 +1,15 @@
 /* 
 
+~~~~~~~~~~ Quick sort ~~~~~~~~~~~
+Youtube - https://www.youtube.com/watch?v=3Bbm3Prd5Fo
+
+
+Time complexity 
+  O(nlog(n) - best or average case 
+  O(n^2) => worst case 
+              - Worst case can be avoided by randomized version of quicksort
+
+
 Properties:
 O(log(n)) extra space
     - The space used by quicksort depends on the version used. The in-place version of quicksort has a 
@@ -12,6 +22,7 @@ O(log(n)) extra space
 O(n^2) time (for few unique keys), but typically O(n·log(n)) if recursion is balanced
 not stable
 not adaptive
+Divide and conqure 
 
 
 Fastest :- 
