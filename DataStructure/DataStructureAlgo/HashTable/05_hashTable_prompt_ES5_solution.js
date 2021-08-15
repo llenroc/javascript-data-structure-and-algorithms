@@ -2,12 +2,12 @@
 
 HASH TABLE
 
-Collection of key-value pairs.
-Map keys to values for efficient lookup.
-Use an array as the underlying data structure.
-Hash table should have a size - this will be used by the hashing function to determine what index to map the key to.
-A hashing function is used to map the key to an integer, which is the index that the value is to be stored at.
-Since our hashing function might map multiple keys to the same integer, we have to deal with collisions by creating buckets at each index of the storage array. These buckets can be arrays or linked lists.
+1. Collection of key-value pairs.
+2. Map keys to values for efficient lookup.
+3. Use an array as the underlying data structure.
+4. Hash table should have a size - this will be used by the hashing function to determine what index to map the key to.
+5. A hashing function is used to map the key to an integer, which is the index that the value is to be stored at.
+6. Since our hashing function might map multiple keys to the same integer, we have to deal with collisions by creating buckets at each index of the storage array. These buckets can be arrays or linked lists.
 
 
 *** Note:
@@ -20,29 +20,29 @@ Hash tables are also referred to as hash mapse or dictionaries.
 *** Operations:
 
 myMap.set(key, value)
-=> myMap object
-Store the key-value pair in the storage array.
-If the key already exists, replace stored value with new value.
-Use the hashing function to map the key to an integer and store the value at the corresponding index.
-Account for the possibility of collisions.
+  => myMap object
+  Store the key-value pair in the storage array.
+  If the key already exists, replace stored value with new value.
+  Use the hashing function to map the key to an integer and store the value at the corresponding index.
+  Account for the possibility of collisions.  
 
 myMap.get(key)
-=> value associated with key, or undefined if none
+  => value associated with key, or undefined if none
 
 myMap.has(key)
-=> true/false depending on if a value has been associated with the key
+  => true/false depending on if a value has been associated with the key
 
 myMap.delete(key)
-=> true if a value was associated with the key
-=> false if a value was never associated with the key
-Remove any value associated to the key
+  => true if a value was associated with the key
+  => false if a value was never associated with the key
+  Remove any value associated to the key
 
 myMap.count()
-=> integer number of key/value pairs in hash table
+  => integer number of key/value pairs in hash table
 
 myMap.forEach(callbackFn)
-=> no returned value
-Invokes callback function once for each key-value pair in the hash table
+  => no returned value
+  Invokes callback function once for each key-value pair in the hash table
 
 
 *** Additional Exercises:
@@ -56,6 +56,15 @@ Resize the hash table:
 /*
   Other resourec Reference link : - https://gist.github.com/alexhawkins/f6329420f40e5cafa0a4
 */
+
+/* [
+  <>,
+  <>,
+  ,,,,,,
+  [{key1: value1}, {key2: value2}, {key2: value2} ],
+  <>,
+  <>
+] */
 
 (function() {
     let logs = new ConsoleLog("F_E_M_HashTable", false);
