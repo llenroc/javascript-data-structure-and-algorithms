@@ -10,10 +10,8 @@ class Node {
 class LinkedList {
 
   constructor() {
-    this._storage = {
-      head: null,
-      tail: null
-    };
+    this.head = null;
+    this.tail = null;
   }
   /*
   * Inserts a new value to the start of the linked list
@@ -21,14 +19,14 @@ class LinkedList {
   */
   insert(value) { // O(1)
     const node = new Node(value);
-    if (this._storage.head) {
+    if (this.head) {
       // assign current head to next pointer of new node
-      node.next = this._storage.head;
+      node.next = this.head;
     } else {
       // If head is null, i.e LinkedList is empty, assign first node to tail
-      this._storage.tail = node;
+     this.tail = node;
     }
-    this._storage.head = node;
+   this.head = node;
   }
   /*
   * Deletes a node
@@ -50,14 +48,14 @@ class LinkedList {
    */
 
   remove(value) { 
-    if (this._storage.head) {
-      if (this._storage.head.value === value) {
+    if (this.head) {
+      if (this.head.value === value) {
         return this.removeHead();
       }
 
       
-      let currentNode = this._storage.head;
-      let nextNode = this._storage.head.next;
+      let currentNode =this.head;
+      let nextNode =this.head.next;
       let found = false;
       while(currentNode !== null) {
         if(nextNode.value === value) {
@@ -77,10 +75,10 @@ class LinkedList {
   * @return {*} - the removed value
   */
   removeHead() { // O(1)
-    if( this._storage.head) {
-      const { value } = this._storage.head;
-      const nextNode = this._storage.head.next;
-      this._storage.head = nextNode;
+    if(this.head) {
+      const { value } =this.head;
+      const nextNode =this.head.next;
+     this.head = nextNode;
       return value;
     }
   }
@@ -90,12 +88,12 @@ class LinkedList {
   * @return {*} - the removed value
   */
   removeTail() { // O(1)
-    let currentNode = this._storage.head;
-    while(currentNode.next !== this._storage.tail) {
+    let currentNode =this.head;
+    while(currentNode.next !==this.tail) {
       currentNode = currentNode.next;
     }
     currentNode.next = null;
-    this._storage.tail = currentNode;
+   this.tail = currentNode;
   }
   /*
   * Searches the linked list and returns true if it contains the value passed
@@ -103,7 +101,7 @@ class LinkedList {
   * @return {boolean} - true if value is found, otherwise false
   */
   contains(value) { // O(n)
-      let currentNode = this._storage.head;
+      let currentNode =this.head;
       while(currentNode !== null) {
         if(currentNode.value === value) {
           return true;
@@ -118,7 +116,7 @@ class LinkedList {
   * @return {boolean} - true if node is the head, otherwise false
   */
   isHead(node) { // O(1)
-    return this._storage.head === node;
+    return this.head === node;
   }
   /*
   * Checks if a node is the tail of the linked list 
@@ -126,12 +124,14 @@ class LinkedList {
   * @return {boolean} - true if node is the tail, otherwise false
   */
   isTail(node) { // O(1)
-    return this._storage.tail === node;
+    return this.tail === node;
   }
 
-  reverse(head) {
+  // https://www.youtube.com/watch?v=sYcOK51hl-A&list=PL2_aWCzGMAwLPEZrZIcNEq9ukGWPfLT4A&index=6
+  reverseIterative() {
     let prev = null;
-    let current = head;
+    let current = this.head;
+    let firstElement = this.head;
 
     while(current !== null) {
       let next = current.next || null;
@@ -140,8 +140,36 @@ class LinkedList {
       current = next;
     }
 
-    head = prev;
-    return head;
+    this.head = prev;
+    this.tail = firstElement;
+    return this;
+  }   
+
+  // https://www.youtube.com/watch?v=KYH83T4q6Vs&list=PL2_aWCzGMAwLPEZrZIcNEq9ukGWPfLT4A&index=8
+  reverseRecursive(node) {
+    if(node.next === null) {
+      this.head = node;
+      return;
+    };
+    this.reverseRecursive(node.next);
+    let nextNode = node.next;
+    nextNode.next = node;
+    node.next = null;
+    this.tail = node;
+  }
+
+  // https://www.youtube.com/watch?v=K7J3nCeRC80&list=PL2_aWCzGMAwLPEZrZIcNEq9ukGWPfLT4A&index=7 
+  printRecursive (node) {
+    if(node === null) return;
+    console.log(node.value);
+    this.printRecursive(node.next);
+  }
+
+  // https://www.youtube.com/watch?v=K7J3nCeRC80&list=PL2_aWCzGMAwLPEZrZIcNEq9ukGWPfLT4A&index=7
+  printReverseRecursive (node) {
+    if(node === null) return;
+    this.printReverseRecursive(node.next);
+    console.log(node.value);
   }
 }
 
@@ -153,7 +181,7 @@ console.log("4. myLinedList.insert(30) = ",  myLinedList.insert(30));
 console.log("5. myLinedList.insert(40) = ",  myLinedList.insert(40));
 console.log("6. myLinedList.insert(50) = ",  myLinedList.insert(50), "\n");
 
-console.log("7. myLinedList._storage.tail = ",  myLinedList.isTail(myLinedList._storage.tail));
+console.log("7. myLinedList.tail = ",  myLinedList.isTail(myLinedList.tail));
 const isTailTestNode1 = new Node(11);
 console.log("7.1 myLinedList.isTail(11) = ",  myLinedList.isTail(isTailTestNode1), "\n");
 
@@ -161,7 +189,7 @@ console.log("7.1 myLinedList.isTail(11) = ",  myLinedList.isTail(isTailTestNode1
 
 console.log("8. myLinedList.removeHead() = ",  myLinedList.removeHead(), "\n");
 
-console.log("9. myLinedList._storage.head = ",  myLinedList.isHead(myLinedList._storage.head));
+console.log("9. myLinedList.head = ",  myLinedList.isHead(myLinedList.head));
 const isHeadTestNode1 = new Node(51);
 console.log("9.1 myLinedList.isHead(51) = ",  myLinedList.isHead(isHeadTestNode1), "\n");
 
@@ -179,6 +207,11 @@ console.log("13. myLinedList.removeTail() = ",  myLinedList.removeTail());
 
 console.log("14. myLinedList = ", JSON.stringify(myLinedList));
 
-console.log("15. myLinedList = ", JSON.stringify(myLinedList.reverse(myLinedList._storage.head)));
+console.log("15. myLinedList = ", JSON.stringify(myLinedList.reverseIterative()));
+console.log("\n16. myLinedList = ", JSON.stringify(myLinedList));
 
+console.log("\n17. myLinedList = ", JSON.stringify(myLinedList.reverseRecursive(myLinedList.head)));
+console.log("\n18. myLinedList = ", JSON.stringify(myLinedList));
 
+myLinedList.printRecursive(myLinedList.head);
+myLinedList.printReverseRecursive(myLinedList.head);
