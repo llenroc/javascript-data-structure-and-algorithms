@@ -128,6 +128,21 @@ class LinkedList {
   isTail(node) { // O(1)
     return this._storage.tail === node;
   }
+
+  reverse(head) {
+    let prev = null;
+    let current = head;
+
+    while(current !== null) {
+      let next = current.next || null;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    head = prev;
+    return head;
+  }
 }
 
 const myLinedList = new LinkedList();
@@ -163,5 +178,7 @@ console.log("12. myLinedList = ", JSON.stringify(myLinedList), "\n");
 console.log("13. myLinedList.removeTail() = ",  myLinedList.removeTail());
 
 console.log("14. myLinedList = ", JSON.stringify(myLinedList));
+
+console.log("15. myLinedList = ", JSON.stringify(myLinedList.reverse(myLinedList._storage.head)));
 
 
