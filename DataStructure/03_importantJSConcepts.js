@@ -1,5 +1,15 @@
 (function(){
 
+/* output := 
+                     #
+                    ##
+                   ###
+                  ####
+                 #####
+                ######
+
+*/
+
 	function StairCase(n){
 		var str = "";
 		for (var i = 0; i < n; i++) {
@@ -16,6 +26,20 @@
 	}
 
 	StairCase(6);
+
+/** ********** JS sort ************** */
+// ascending order
+const products = [1,3,5,7,9,11,2,4,6,8,10];
+products.sort((a,b) => a -b );
+console.log(products); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+
+//descending orderconst products = [1,3,5,7,9,11,2,4,6,8,10];
+const products1 = [1,3,5,7,9,11,2,4,6,8,10];
+products1.sort((a,b) => a -b );
+console.log(products1); // [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+  /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 	var products = [
 		{id : 4, name : "Pen", cost : 20, units : 50, category : 1},

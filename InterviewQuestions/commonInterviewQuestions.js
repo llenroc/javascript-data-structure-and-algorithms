@@ -29,6 +29,14 @@ Q9. Check if a linked list contains a cycle.
 Q10. Find the kth to the last node.
 
 
+*** Additional Exercises:
+
+Implement a circularly linked list:
+https://en.wikipedia.org/wiki/Linked_list#Circularly_linked_list
+
+Reimplement stack and queue data structures using linked lists.
+
+
 ~~~~~~~~~~ Hash Table ~~~~~~~~~~~~~ 
 
 Q1. Count the number of occurrences of all characters or words in a body of text or string.

@@ -20,7 +20,7 @@ obj1.value = 15;
 console.log(obj2.value); // 15
 console.log(obj3.value); // 10
 
-// context vs scope
+/* ~~~~~~~ context vs scope ~~~~~~~~~ */
 
 // Context will tell you where we are with in the object
 // Scope is define with in the block.
@@ -46,6 +46,15 @@ const b = {
   }
 }
 b.a(); // {a: ƒ}
+
+
+//IMPORTANT -  But if we change this to ES6
+const b1 = {
+  a1: () => {
+    console.log(this);
+  }
+}
+b1.a1(); //  window object 
 
 
 // 3. Instantiation
@@ -74,12 +83,17 @@ class Wizard extends Player {
 const Wizard1 = new Wizard("Sameer", "healer");
 const Wizard2= new Wizard("Kumar", "coder");
 
-Wizard1.introduce();
-Wizard1.play();
+Wizard1.introduce(); // My name is Sameer and I am a healer
+Wizard1.play(); // Whooooooo, I am a healer 
 
 
-Wizard2.introduce();
-Wizard2.play();
+Wizard2.introduce(); // My name is Kumar and I am a coder
+Wizard2.play(); // Whooooooo, I am a coder
+
+
+
+
+
 
 
 /******** ES5 implementation of class ********/
