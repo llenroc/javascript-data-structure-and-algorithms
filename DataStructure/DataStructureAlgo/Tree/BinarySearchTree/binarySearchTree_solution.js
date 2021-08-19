@@ -608,6 +608,23 @@ class BinarySearchTree {
 
     }
 
+    isBinarySearchTree(node, minValue, maxValue) {
+      if(node === null) return true;
+      if(!minValue) minValue = -Infinity;
+      if(!maxValue) maxValue = Infinity;
+      // console.log(`value = ${node.value},  minValue = ${minValue}, maxValue = ${maxValue}`);
+      if(
+        node.value > minValue &&
+        node.value < maxValue &&
+        this.isBinarySearchTree(node.left, minValue, node.value) &&
+        this.isBinarySearchTree(node.right, node.value, maxValue)
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
 }
 
 /*
@@ -823,4 +840,10 @@ console.log("\n");
 console.log(`\n diameterOfBinaryTree = 7 = ${BST1.diameterOfBinaryTree(BST1)} \n`);
 
 
+console.log(`\n myBST isBinarySearchTree = true = ${BST1.isBinarySearchTree(myBST)} \n`);
+console.log(`\n BST1  isBinarySearchTree = true = ${BST1.isBinarySearchTree(BST1)} \n`);
+console.log(`\n BST2  isBinarySearchTree = true = ${BST1.isBinarySearchTree(BST2)} \n`);
 
+
+BST1.left.right.left.left = new BinarySearchTree(100);
+console.log(`\n BST2  isBinarySearchTree = false = ${BST1.isBinarySearchTree(BST1)} \n`);
