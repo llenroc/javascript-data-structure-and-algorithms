@@ -185,8 +185,100 @@ class BinarySearchTree {
       }
     }
 
-    deleteNode() {
 
+    //Find Node to be deleted 
+    //Find number of child nodes 
+        //Case 1:- its a leaf node ->  has no left and no right
+            //if parent exist
+            //else parent does not exist
+        //Case 2:- it has one child
+            //if parent exist
+                //if left child exist
+                //else right child exist
+            //else parent does not exist
+                //if left child exist
+                //if right child exist
+        //case 3:- it has two children
+            //Find minimum node value in the right subtree
+            //replace with the node to be deleted 
+            //delete minimum value from node by passing to deleteMin
+    deleteNode(value) {
+      var parent, children, foundNode = false, node;
+      function findNode(value, root) {
+          var current = root;
+          while(current) {
+            if (value > current.value) {
+              parent = current;
+              current = current.right;
+            } else if (value < current.value) {
+              parent = current;
+              current = current.left;
+            } else if (value == current.value) {
+              node = current;
+              break;
+            }
+          }
+      }
+
+      function findMin(node) {
+          var minimum = node;
+          while(node) {
+              minimum = node;
+              node = node.left;
+          }
+          return minimum;
+      }
+
+      function getChildren(node) {
+          var count = 0;
+          return count + (!!node.left ? 1 : 0) + (!!node.right ? 1 : 0);
+      }
+
+      findNode(value, this);
+
+      if (node) {
+          children = getChildren(node);
+          switch(children) {
+              case 0: 
+                  if(parent) {
+                      parent.left = null;
+                  } else {
+                      this.value = null;
+                  }
+                  break;
+              case 1:
+                  // Need to correct below logic 
+                      //Case 2:- it has one child
+                          //if parent exist
+                              //if left child exist
+                              //else right child exist
+                          //else parent does not exist
+                              //if left child exist
+                              //if right child exist
+                  if(parent) {
+                    if(node.left) {
+                      parent.left = node.left;
+                    } else {
+                      parent.left = node.right;
+                    }
+                    node = null;
+                  } else {
+                      const keep = !!keep.left ? node.left : node.right;
+                      this.value = keep.value;
+                      this.left = !!keep.left ? keep.left || null;
+                      this.right = !!keep.right ? keep.right || null;
+                  }
+                  break;
+              case 2: {
+                  var minimum = findMin(node.right);
+                  node.value = minimum.value;
+                  node.right.deleteMin();
+                  break;
+              }
+          }
+      }  
+      
+      return !!node;
     }
 
     // true/false

@@ -21,3 +21,15 @@ Array.prototype.myMap = function (callback) {
   logs.push(`mappedArray for [${testArray}]=`, mappedArray);
   logs.print();
 })();
+
+
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+// _.map always return a new array 
+_.map = function(array, callback) {
+  const storage = [];
+  // _.each is going to take care of Object list and array
+  _.each(array, (item, index, list) => {
+      storage.push(callback(item, index, list));
+  });
+  return storage;
+}

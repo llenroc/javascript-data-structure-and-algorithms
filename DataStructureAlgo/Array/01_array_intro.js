@@ -44,4 +44,36 @@ strings.unshift('x') // O(n)
 //splice
 strings.splice(2, 0, 'alien'); // O(n)
 
-console.log(strings)
+console.log(strings);
+
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~ */ 
+
+// Exercise - Destructure the nested data structure into two variables with the string 'red' and 'orange'
+
+var suspects = [
+  {
+    name: "Rusty",
+    color: "orange"
+  },
+  {
+    name: "Rusty",
+    color: "orange"
+  }
+]
+
+const [ item1,  item2 ] = suspects;
+const [ { color: color1 },  { color: color2 } ] = suspects;
+console.log(`color1 = ${color1},  color2 = ${color2}`);
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~ */ 
+
+// Given the following line of code, what would be the output of the console?
+
+const foo = new Array(3);
+console.log(foo); // [undefined, undefined, undefined];
+
+// Hint: When you instantiate the JavaScript Array() constructor, and pass in a single number, that number will indicate the length of the array, but the elements are still not initialized (i.e. they are all undefined) 

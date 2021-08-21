@@ -15,3 +15,19 @@ Array.prototype.myForEach = function(callback) {
   });
   logs.print();
 })();
+
+
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+// Array - ForEach  for Array and Object
+// Important. - each does not return anything
+_.each = function(list, callback) {
+  if(Array.isArray(list)) {
+    for(let i = 0; i < list.length; i++) {
+      callback(list[i], i, list);
+    }
+  } else { // for objects
+    for ( let key in list) {
+      callback(list[key], key, list);
+    }
+  }
+}
