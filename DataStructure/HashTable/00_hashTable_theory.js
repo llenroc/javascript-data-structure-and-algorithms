@@ -1,6 +1,11 @@
 console.log("hash table");
 
 /*
+Reference link : - https://gist.github.com/alexhawkins/f6329420f40e5cafa0a4
+*/
+
+
+/*
 JavaScript Objects are hash table 
 
 1. Insert = O(1)

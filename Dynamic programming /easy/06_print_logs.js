@@ -1,3 +1,5 @@
+// Refine this logic
+
 (function(){
     const logs = new ConsoleLog("print_logs", false);
 

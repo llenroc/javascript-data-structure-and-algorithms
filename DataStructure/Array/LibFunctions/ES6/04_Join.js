@@ -1,3 +1,8 @@
+/*
+Reference link : - https://gist.github.com/sudostack/699cd416e20b0e05a97d
+*/
+
+
 //Array Join
 function myES6Join([head, ...tail], separator = `,`) {
   if(head === undefined && !tail.length) {
