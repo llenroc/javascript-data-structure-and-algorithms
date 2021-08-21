@@ -1,3 +1,17 @@
+//Array - reduce
+Array.prototype.myReduce = function (callback, initialValue) {
+  let result = initialValue ? initialValue : undefined ;
+  for(let i=0; i<this.length; i++) {
+    if(result){
+      result = callback.call(undefined, result, this[i], i, this);
+    } else {
+      result = this[i];
+    }
+  }
+  return result;
+};
+
+
 function myES6Reduce([head, ...tail], fn, initialValue){
   if(head === undefined && tail.length === 0){
     return initialValue;

@@ -1,18 +1,6 @@
 //https://stackoverflow.com/questions/22103354/javascripts-bind-implementation
 //https://gist.github.com/manar007/299fb93a69b5d7703366
 
-/* Function.prototype.bind = function(context){
-    var	that = this,
-        slicedArgs = Array.prototype.splice.call(arguments, 1),
-        bounded = function (){
-            var newArgs = slicedArgs.concat(Array.prototype.splice.call(arguments));
-            return that.apply(context,newArgs);
-        }
-    bounded.prototype = that.prototype;
-    return bounded;
-}; */
-
-
 
 (function(){
     const logs = new ConsoleLog("bind-apply-call", false);
@@ -40,12 +28,12 @@
         }
     }
 
-    //concise 
-    /* Function.prototype.bind_ES6 = ( context, ...rest ) => {
+    //FINAL bind_ES6_Final ---> concise
+    Function.prototype.bind = ( context, ...rest ) => {
         return ( ...args ) => {
             return this.apply( context, [ ...rest, ...args ]);
         }
-    } */
+    }
   
     // Example :-1 
     var foo = {
@@ -80,5 +68,19 @@
   
     logs.print();
   })();
+
+
+// DO NOT refer this code 
+/* Function.prototype.bind = function(context){
+    var	that = this,
+        slicedArgs = Array.prototype.splice.call(arguments, 1),
+        bounded = function (){
+            var newArgs = slicedArgs.concat(Array.prototype.splice.call(arguments));
+            return that.apply(context,newArgs);
+        }
+    bounded.prototype = that.prototype;
+    return bounded;
+}; */
+
 
   

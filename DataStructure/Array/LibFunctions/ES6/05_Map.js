@@ -1,3 +1,13 @@
+//Array - Map - ES5
+Array.prototype.myMap = function (callback) {
+  let arr = [];
+  for(let i=0; i<this.length; i++){
+    arr.push(callback(this[i], i, this));
+  }
+  return arr;
+};
+
+
 // Array.map
 function myES6Map([head, ...tail], fn) {
   if(head === undefined && !tail.length) {

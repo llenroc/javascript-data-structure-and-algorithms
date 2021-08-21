@@ -1,3 +1,15 @@
+// ES5
+Array.prototype.myFilter = function (callback, context) {
+  let result = [];
+  for(let i = 0; i<this.length; i++) {
+    if(callback.call(context, this[i], i, this)){
+      result.push(this[i]);
+    }
+  }
+  return result;
+};
+
+
 //Array filter
 function myES6Filter([head, ...tail], fn) {
   const newHead = fn(head) ? [head] : [];

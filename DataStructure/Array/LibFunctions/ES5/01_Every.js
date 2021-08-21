@@ -10,7 +10,7 @@ Array.prototype.myEvery = function (callback, context){
 };
 
 (function(){
-  const logs = new ConsoleLog("ES5_Every", false);
+  const logs = new ConsoleLog("ES5_Every", true);
 
   const allNumberAbove10 = [11,12,25,15];
   const numberArray = [5,7,10,2,25,15];
