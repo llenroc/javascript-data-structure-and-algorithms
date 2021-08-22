@@ -3,6 +3,7 @@ Reference link
 1. https://fireship.io/courses/javascript/interview-graphs/
 2. https://www.youtube.com/watch?v=cWNEl4HE2OE
 
+
 Graph data structure and basic traversal algorithms like depth-first search (DFS) and breadth-first search (BFS)
 
 1. A graph can be represented as an adjacency matrix or adjacency list. In most cases, it is more efficient to use the latter because it requires less memory and offers better time-complexity when performing search algorithms.
@@ -179,3 +180,72 @@ function DFS1(start, visited = new Set()) {
 
 DFS1("PHX");
 console.log("\n");
+
+
+
+
+
+// https://www.youtube.com/watch?v=mXUZ3jeaQLo&list=PLeIMaH7i8JDiRA4fK9QmjvDSZKBJDyxpc&index=9
+
+
+/*
+~~~~~~ DFS algorithms ~~~~~~~
+1. Push and print starting Vertex.
+2. While ( stack not empty) {
+  1. P = Top();
+  2. Push( Print ) only one adjacent unvisited vertex of P. 
+  3. IF no valid vertex, POP()
+  
+}
+
+Note - whenever you push something you have to print
+*/
+
+function DFS_iterative(start, callback) {
+  const visited = new Set();
+  const stack = [start];
+  console.log(start);
+  visited.add(start);
+  while (stack.length > 0) {
+    const airport = stack[stack.length -1]; // Top element
+    // console.log(airport);
+    const destinations = adjacencyList.get(airport);
+    let checkFlag = false;
+    for(const destination of destinations) {
+      if(destination === "BKK")  {
+        console.log(`DFS found Bangkok!  <--- ${airport}`);
+      }
+      if(!visited.has(destination)) { 
+        visited.add(destination);
+        stack.push(destination);
+        console.log(destination);
+        checkFlag = true;
+      }
+    }
+    if(!checkFlag) {
+      stack.pop();
+    }
+  }
+}
+
+
+DFS_iterative("PHX");
+console.log("\n");
+
+/*
+
+PHX
+LAX
+JFK
+OKC
+HEL
+LOS
+MEX
+DFS found Bangkok!  <--- MEX
+BKK
+LIM
+EZE
+DFS found Bangkok!  <--- LIM
+DFS found Bangkok!  <--- MEX
+
+*/

@@ -1,0 +1,1 @@
+[JavaScript tutorial] (https://javascript.info/event-delegation#delegation-example-actions-in-markup?map)
