@@ -1,1 +1,1 @@
-[JavaScript tutorial] (https://javascript.info/event-delegation#delegation-example-actions-in-markup?map)
+[JavaScript.info tutorial] (https://javascript.info/)

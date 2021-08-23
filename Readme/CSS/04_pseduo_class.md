@@ -1,3 +1,9 @@
+[CSS pseudo class part-1](https://www.youtube.com/watch?v=zGiirUiWslI)
+
+[CSS pseudo class part-2](https://www.youtube.com/watch?v=xoRbkm8XgfQ)
+
+
+
 ### How to color row (even + odd)
 	
 1) Color table row (even/odd)

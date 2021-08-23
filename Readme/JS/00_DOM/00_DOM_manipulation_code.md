@@ -1,4 +1,6 @@
+[ DOM manipulations methods ](https://www.youtube.com/watch?v=y17RuWkWdn8)
 
+[ DOM Traversal method ](https://www.youtube.com/watch?v=v7rSSy8CaYE)
 
 ```
 for(let elem of document.querySelectorAll('*')) {
@@ -71,3 +73,16 @@ table.onclick = function(event) {
   highlight(td); // (4)
 };
 ```
+
+## DOM methods
+00:00 - Introduction
+01:34 - getElementById
+03:04 - getElementsByClassName
+04:16 - QuerySelector
+06:48 - querySelectorAll
+07:50 - Selecting Children
+09:19 - Selecting Descendants
+10:39 - Selecting Parents
+12:00 - Selecting Ancestors
+13:15 - nextElementSibling
+13:51 - previousElementSibling
