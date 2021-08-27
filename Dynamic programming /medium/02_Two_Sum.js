@@ -1,3 +1,38 @@
+/*
+Given an array of integers 'nums' and and integer 'target', return the index position of the two numbers such that they add up to target.
+
+- Each input would have exactly one solution, and you may not use the same element twice.
+- You can return the answer in any order.
+
+Example 1;
+
+Input -  nums = [2,7,11,15] and target = 9
+output - [0,1]
+*/
+
+
+/** ~~~~~~~~ If Array is sorted ~~~~~~~~~~~ */
+// Solution-1 - Nested loop
+// Solution-2 - Run lop till lo < hi, lo = 0, hi = n-1
+
+
+
+/** ~~~~~~~~ If Array is not sorted ~~~~~~~~~~~ */
+// Solution1 - Nested loop
+// Solution2 - Use hashMap to track the index.
+
+
+
+
+
+
+
+
+
+
+
+/** ~~~~~~~~ Old notes ~~~~~~~~~~~ */
+
 //http://www.geeksforgeeks.org/find-pairs-in-array-whose-sums-already-exist-in-array/
 //http://www.geeksforgeeks.org/find-a-pair-with-the-given-difference/
 //http://www.geeksforgeeks.org/find-pairs-b-array-b-k/
@@ -72,25 +107,4 @@
 })();
 
 
-/* ~~~~~~~~~~~~~~ */
-
-// https://gist.github.com/samerbuna/aa1f011a6e42d6deba46
-
-var possibleCombinationSum = function(arr, n) {
-  if (arr.indexOf(n) >= 0) { return true; }
-  if (arr[0] > n) { return false; }
-  if (arr[arr.length - 1] > n) {
-    arr.pop();
-    return possibleCombinationSum(arr, n);
-  }
-  var listSize = arr.length, combinationsCount = (1 << listSize)
-  for (var i = 1; i < combinationsCount ; i++ ) {
-    var combinationSum = 0;
-    for (var j=0 ; j < listSize ; j++) {
-      if (i & (1 << j)) { combinationSum += arr[j]; }
-    }
-    if (n === combinationSum) { return true; }
-  }
-  return false;
-};
 
