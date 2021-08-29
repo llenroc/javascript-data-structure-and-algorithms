@@ -33,3 +33,14 @@ function foo(x,y) {
   }
 }
 // output - 0,1,2,3,4,5,6,7,8,,9 
+
+
+
+// Exercise 2
+function foo(x, y) {
+  if(x > y) {
+    { // let x = 2, y = x * 3;
+      // ...
+    }
+  }
+}
