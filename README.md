@@ -33,7 +33,6 @@
 
 ## Amazon online assesment questions
 
-
 [Sameer status link](https://docs.google.com/spreadsheets/d/109gSY4frs7uqitTbAuEpvEYZmgAyb_K5_gCSyt0FUP4/edit#gid=1731630353)
 
 [*** Git solutions for Amazon-Online-Assesment-Questions *** ](https://github.com/SameerMakhija/Amazon-Online-Assessment-Questions-LeetCode)
@@ -53,7 +52,6 @@
 [Amazon Final Interview Questions | SDE1](https://leetcode.com/discuss/interview-question/488887/Amazon-Final-Interview-Questions-or-SDE1)
 
 [Algorithms GitHub](https://github.com/williamfiset/algorithms)
-
 
 
 
@@ -78,7 +76,6 @@ Amazon Knight Moves Problem: https://leetcode.com/playground/WSJzH6DS
 
 Amazon Items in Containers Problem: https://leetcode.com/playground/D7Z6gQdr
 
-<<<<<<< HEAD
 Amazon Transaction Logs Problem: https://leetcode.com/playground/k5mQfFb5
 
 

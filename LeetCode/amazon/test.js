@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 
 Question 
@@ -65,7 +66,7 @@ const partitionLabels = function (S) {
 
 let S = "ababcbacadefegdehijhklij";
 console.log(partitionLabels(S))
-=======
+
 console.log("coming");
 
 const myMap = new Map();
@@ -110,3 +111,4 @@ var reviews = [
 "Thanks Newshop for the quick delivery"];
 
 console.log(topNumCompetitors(numCompetitors, topNCompetitors, competitors, numReviews, numReviews));
+
