@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 
 Question 
@@ -111,4 +110,3 @@ var reviews = [
 "Thanks Newshop for the quick delivery"];
 
 console.log(topNumCompetitors(numCompetitors, topNCompetitors, competitors, numReviews, numReviews));
-

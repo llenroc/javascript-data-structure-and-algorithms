@@ -55,7 +55,6 @@
 
 
 
-
 ### Solutions for amazon problems 
 
 Amazon Association Group/Recommendation Problem: https://leetcode.com/playground/jsveHJPT
@@ -350,4 +349,3 @@ did not change a lot, they update some input I think.
 
 
 Amazon Transaction Logs Problem: https://leetcode.com/playground/k5mQfFb5
-
