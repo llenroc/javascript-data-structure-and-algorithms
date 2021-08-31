@@ -42,6 +42,8 @@ var convertToGraph = function(node, adjList) {
     convertToGraph(node.left, adjList);
     
     let neighbors = [];
+    
+    // If node already exist in adjList, get the list of neighbors
     if (adjList.has(node.val)) {
         neighbors = adjList.get(node.val);   
     }
