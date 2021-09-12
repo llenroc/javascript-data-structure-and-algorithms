@@ -84,7 +84,9 @@ function createCompleteBinaryTreeFromArray(arr) {   // [1,null,2,3]
  * @param {TreeNode} root
  * @return {number[]}
  */
+// Recursive solution 
 var inorderTraversal = function(root) {
+    root = createCompleteBinaryTreeFromArray(root);
     const results = [];
     const dfs = (root) => {
       if(root !== null) {
@@ -93,14 +95,54 @@ var inorderTraversal = function(root) {
         if(!!root.right) dfs(root.right);
       }
     }
-    dfs(createCompleteBinaryTreeFromArray(root));
+    dfs(root);
     return results;
 };
 
-console.log(JSON.stringify(createCompleteBinaryTreeFromArray([1,null,2,3])));
+console.log(JSON.stringify(createCompleteBinaryTreeFromArray([1,null,2,3]))); // [ 1, 3, 2 ]
 console.log(inorderTraversal([1,null,2,3])); // [1,3,2]
 console.log(inorderTraversal([])); // []
 console.log(inorderTraversal([1])); // [1]
 console.log(inorderTraversal([1,2])); // [2,1]
 console.log(inorderTraversal([1,null,2])); // [1,2]
+console.log("\n");
 
+
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+// Iterative solution 
+// Push all the left nodes to stack through pushLeftToStack
+// Pop one by one each node and print 
+// IF right node exist, push right node to  pushLeftToStack
+var inorderTraversal1 = function(root) {
+    root = createCompleteBinaryTreeFromArray(root);
+    const pushLeftToStack = (tree, stack) => {
+      let current = tree;
+      while(current !== null) {
+        stack.push(current);
+        current = current.left;
+      }
+    }
+    
+    const results = [];
+    const stack = [];
+    pushLeftToStack(root, stack);
+    while(stack.length) {
+      let top = stack.pop();
+      results.push(top.val);
+      // If right exist,  Push to stacks
+      if(top.right) {
+        pushLeftToStack(top.right, stack);
+      }
+    }
+    
+    return results;
+};
+
+console.log(inorderTraversal1([1,null,2,3])); // [1,3,2]
+console.log(inorderTraversal1([])); // []
+console.log(inorderTraversal1([1])); // [1]
+console.log(inorderTraversal1([1,2])); // [2,1]
+console.log(inorderTraversal1([1,null,2])); // [1,2]
