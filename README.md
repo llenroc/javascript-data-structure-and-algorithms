@@ -22,6 +22,13 @@
 ## Resources
 [backtobackswe.com](https://backtobackswe.com/platform/content)
 
+[Frontend interview handbook](https://github.com/yangshun/front-end-interview-handbook)
+
+[Tech Interview handbook](https://techinterviewhandbook.org/algorithms/algorithms-introduction/)
+
+
+[geeksforgeeks company interview questions](https://www.geeksforgeeks.org/must-coding-questions-company-wise/)
+
 ## Data structure topics 
 
 ### Data Structure 
