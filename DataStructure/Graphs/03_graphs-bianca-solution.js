@@ -47,27 +47,36 @@ class Graph {
     }
   }
 
+  // This logic need to check, does not seems to work as expected 
   depthFirstTraversal(startingNode, func = console.log) {
-    if (startingNode === undefined) {
-      return 'No starting node was provided';
-    }
-    let nodeStack = [];
-    let visitedArr = [];
+    const stack = [startingNode];
+    const visited = new Set();
 
-    nodeStack.push(startingNode);
-    visitedArr[startingNode] = true;
+    while (stack.length) {
+      const top = stack.pop();
 
-    while (nodeStack.length) {
-      const current = nodeStack.pop();
-      const neighbors = this.adjList[current];
-      func(current);
+      if (visited.has(top)) {
+        continue;
+      }
 
-      neighbors.forEach(neighbor => {
-        if (!visitedArr[neighbor]) {
-          nodeStack.push(neighbor);
-          visitedArr[neighbor] = true;
+      visited.add(top);
+      func(top);
+
+      const neighbors = this.adjList.get(top);
+      /*
+      // This is correct logic but will print from right to left
+      for (let neighbor of neighbors) {
+        if (!visited.has(neighbor)) {
+          stack.push(neighbor);
         }
-      });
+      }*/
+      
+      // Use reverse iteraor to print from left to right 
+      for(let i = neighbors.length - 1; i > -1; i--) {
+          if (!visited.has(neighbors[i])) {
+            stack.push(neighbors[i]);
+          }
+      }
     }
   }
 

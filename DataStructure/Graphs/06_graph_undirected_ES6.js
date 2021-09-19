@@ -88,7 +88,7 @@ function BFS(start) {
     for(const destination of destinations) {
       // Search logic could be addded here
       if(destination === "BKK") {
-        console.log(`BFS found Bangkok!  <--- ${airport}`);
+        console.log(`******* BFS found Bangkok!  <--- ${airport}`);
       }
 
       if(!visited.has(destination)) {
@@ -99,7 +99,7 @@ function BFS(start) {
   }
 }
 
-
+console.log("\n *********** BFS Iterative ************");
 BFS("PHX");
 console.log("\n");
 
@@ -126,7 +126,7 @@ function DFS(start, visited = new Set()) {
   const destinations = adjacencyList.get(start);
   for (const destination of destinations) {
     if(destination === "BKK")  {
-      console.log(`DFS found Bangkok!  <--- ${start}`);
+      console.log(`******* DFS found Bangkok!  <--- ${start}`);
     }
 
     if(!visited.has(destination)) {
@@ -135,6 +135,8 @@ function DFS(start, visited = new Set()) {
   }
 }
 
+
+console.log("\n *********** DFS Recursive ************");
 DFS("PHX");
 console.log("\n");
 
@@ -167,7 +169,7 @@ function DFS1(start, visited = new Set()) {
   const destinations = adjacencyList.get(start);
   for (const destination of destinations) {
     if(destination === "BKK")  {
-      console.log(`DFS found Bangkok!  <--- ${start} in ${count} steps`);
+      console.log(`******** DFS found Bangkok!  <--- ${start} in ${count} steps`);
       //Return from here if you want to stop after first find.
       return;
     }
@@ -178,74 +180,79 @@ function DFS1(start, visited = new Set()) {
   }
 }
 
+
+console.log("\n **** DFS Recursive (stop after first occurance) ****");
 DFS1("PHX");
 console.log("\n");
 
-
-
-
-
-// https://www.youtube.com/watch?v=mXUZ3jeaQLo&list=PLeIMaH7i8JDiRA4fK9QmjvDSZKBJDyxpc&index=9
-
-
 /*
-~~~~~~ DFS algorithms ~~~~~~~
-1. Push and print starting Vertex.
-2. While ( stack not empty) {
-  1. P = Top();
-  2. Push( Print ) only one adjacent unvisited vertex of P. 
-  3. IF no valid vertex, POP()
-  
-}
-
-Note - whenever you push something you have to print
+PHX
+LAX
+MEX
+******** DFS found Bangkok!  <--- MEX in 3 steps
+JFK
+OKC
+HEL
+LOS
 */
 
+
+// This logic need to check, does not seems to work as expected 
+// https://www.techiedelight.com/depth-first-search/
 function DFS_iterative(start, callback) {
   const visited = new Set();
   const stack = [start];
-  console.log(start);
-  visited.add(start);
-  while (stack.length > 0) {
-    const airport = stack[stack.length -1]; // Top element
-    // console.log(airport);
-    const destinations = adjacencyList.get(airport);
-    let checkFlag = false;
-    for(const destination of destinations) {
+  while(stack.length) {
+    const top = stack.pop();
+
+    if(visited.has(top)){
+      continue;
+    }
+
+    visited.add(top);
+    callback(top);
+
+    const destinations = adjacencyList.get(top);
+    for(let index = destinations.length - 1; index > -1; index--) {
+      const destination = destinations[index];
       if(destination === "BKK")  {
-        console.log(`DFS found Bangkok!  <--- ${airport}`);
+        console.log(`******** DFS found Bangkok!  <--- ${start}`);
       }
-      if(!visited.has(destination)) { 
-        visited.add(destination);
+      if(!visited.has(destination)) {
         stack.push(destination);
-        console.log(destination);
-        checkFlag = true;
       }
     }
-    if(!checkFlag) {
-      stack.pop();
-    }
+
+    /* 
+    // This logic is also correct, Will print path from right to left
+    for(let destination of destinations) {
+      if(destination === "BKK")  {
+        console.log(`******** DFS found Bangkok!  <--- ${start}`);
+      }
+      if(!visited.has(destination)) {
+        stack.push(destination);
+      }
+    }*/
   }
 }
 
-
-DFS_iterative("PHX");
+console.log("\n *********** DFS Iterative ************");
+DFS_iterative("PHX", console.log);
 console.log("\n");
 
 /*
 
 PHX
 LAX
+MEX
+******** DFS found Bangkok!  <--- PHX
+BKK
+LIM
+******** DFS found Bangkok!  <--- PHX
+EZE
 JFK
 OKC
 HEL
 LOS
-MEX
-DFS found Bangkok!  <--- MEX
-BKK
-LIM
-EZE
-DFS found Bangkok!  <--- LIM
-DFS found Bangkok!  <--- MEX
 
 */

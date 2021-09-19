@@ -144,32 +144,38 @@ class Graph {
     5: [1, 2, 4]
   }
 
-  1. Add unvisted vertex to stack
-  2. Mark vertex as visted 
-  3. If vertex has unvisted childeren 
-    - repeat 1-2 for child 
-  4. If vertex has no childeren 
-    - pop from stack
-  5. Repeat untill stack is empty
-
   Note - DFS uses STACK
   */
 
   depthFirstTraversal(startingNode, func = console.log) {
-    const stack = [];
-    const visted = {};
-    stack.push(startingNode);
-    visted[startingNode.value] = true;
+    const stack = [startingNode];
+    const visited = new Set();
 
-    while (stack.length > 0) {
-      const currentNode = stack.pop();
-      func(currentNode);
-      this.adjList[currentNode.value].edges.forEach(edge => {
-        if (!visted[edge.value]) {
-          stack.push(edge);
-          visted[edge.value] = true;
+    while (stack.length) {
+      const top = stack.pop();
+
+      if (visited.has(top)) {
+        continue;
+      }
+
+      visited.add(top);
+      func(top);
+
+      const neighbors = this.adjList.get(top);
+      /*
+      // This is correct logic but will print from right to left
+      for (let neighbor of neighbors) {
+        if (!visited.has(neighbor)) {
+          stack.push(neighbor);
         }
-      })
+      }*/
+      
+      // Use reverse iteraor to print from left to right 
+      for(let i = neighbors.length - 1; i > -1; i--) {
+          if (!visited.has(neighbors[i])) {
+            stack.push(neighbors[i]);
+          }
+      }
     }
   }
 
@@ -177,57 +183,21 @@ class Graph {
     - Good for shortest path algorithms
     - Note - BFS uses Queue
 
-   const BFS = graph => {
-    set start vertex to visited
-
-    load it into queue
-    
-    while queue not empty
-    
-       for each edge incident to vertex
-    
-            if its not visited
-    
-                load into queue
-    
-                mark vertex
-    } 
-
-
-    const BFS = graph => {
-      initialize unexplored list
-
-      for the first vertex
-        add to the unexplored list
-        optional: store pointer to parent vertex to null
-        mark as visited
-      while unexplored list is not empty
-        remove next vertex from unexplored list
-        optional: process vertex
-        for each edge
-            if un-visited
-                optional: process edge
-                add all un-visited/explored vertices to list
-                optional: store pointer to parent vertex
-                mark as visited
-        mark vertex as explored
-    }
   */
   breadthFirstTraversal(startingNode, func = console.log) {
-    const queue = [];
-    const visited = {};
-    queue.push(startingNode);
-    visited[startingNode.value] = true;
-    while (queue.length > 0) {
-      const currentNode = queue.shift();
-      func(currentNode);
-      const neighbors = this.adjList[currentNode.value].edges;
-      neighbors.forEach(neighbor => {
-        if(!visited[neighbor.value]) {
+    const queue = [startingNode];
+    const visited = new Set();
+    visited.add(startingNode);
+    while(queue.length) {
+      const top = queue.shift();
+      func(top);
+      const neighbors = this.adjList[top.val].edges;
+      for(let neighbor of neighbors) {
+        if(!visited.has(neighbor)) {
           queue.push(neighbor);
-          visited[neighbor.value] = true;
+          visited.add(neighbor);
         }
-      })
+      }
     }
   }
 }
