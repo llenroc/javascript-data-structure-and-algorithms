@@ -19,6 +19,10 @@
 
 [LeetCode study Plan](https://leetcode.com/discuss/study-guide/1422121/introducing-new-feature-study-plan)
 
+[Depth Frist Search Interview Questions](https://www.techiedelight.com/dfs-interview-questions/)
+
+[LinkedIn skill assessment](https://github.com/Ebazhanov/linkedin-skill-assessments-quizzes)
+
 ## Resources
 [backtobackswe.com](https://backtobackswe.com/platform/content)
 
@@ -29,7 +33,10 @@
 
 [geeksforgeeks company interview questions](https://www.geeksforgeeks.org/must-coding-questions-company-wise/)
 
-[Algorithms GitHub](https://github.com/williamfiset/algorithms)
+
+[500 data structure](https://techiedelight.quora.com/500-Data-Structures-and-Algorithms-interview-questions-and-their-solutions)
+
+[a-guide-for-dummies-like-me](https://leetcode.com/discuss/general-discussion/623011/a-guide-for-dummies-like-me)
 
 ## Data structure topics 
 
