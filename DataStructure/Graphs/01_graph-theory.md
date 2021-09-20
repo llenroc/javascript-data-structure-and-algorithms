@@ -113,4 +113,20 @@ A minimum spanning tree is a spanning tree with the minimum possible total edge 
 > `Bellman-Ford algorithm`, on the other hand, can solve the “single-source shortest path” in a weighted directed graph with any weights, including, of course, negative weights.
 
 
+##  Bellman Ford Algorithm
+https://leetcode.com/explore/learn/card/graph/622/single-source-shortest-path-algorithm/3864/
 
+> Theorem 1: In a “graph with no negative-weight cycles” with N vertices, the shortest path between any two vertices has at most N-1 edges.
+
+> Theorem 2: In a “graph with negative weight cycles”, there is no shortest path.
+
+
+## Kahn's Algorithm
+
+### Limitation of the Algorithm
+- “Topological sorting” only works with graphs that are directed and acyclic.
+
+- There is at least one vertex in the “graph” with an “in-degree” of 0. If all vertices in the “graph” have non-zero “in-degree”, then all vertices need at least one vertex as a predecessor. In this case, no vertex can serve as the starting vertex.
+
+TC = O(V+E)
+SC = O(V+E)
