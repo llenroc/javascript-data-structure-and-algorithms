@@ -1,11 +1,6 @@
 # Accessibility 
 
-[Refrence link](https://www.youtube.com/watch?v=HtTyRajRuyY&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=31) 
 
-
-[Youtube - Accessible Web Design: What Is It & How To Do It](https://www.youtube.com/watch?v=-ao_Kc_8rpE)
-
-[Google Accessibility tutorial](https://github.com/jkup/learn-a11y)
 
 
 ## Benefits of accessibility and SEO
@@ -31,7 +26,23 @@
 5. Develop Correctly 
 
 
+## Tools to check accessibility
+1. Wave chrome extension 
+2. AA checker 
+3. Color extension
+4. Axe node package 
+
+
+
+
 ## Google Accessibility resources 
+
+[Refrence link](https://www.youtube.com/watch?v=HtTyRajRuyY&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=31) 
+
+
+[Youtube - Accessible Web Design: What Is It & How To Do It](https://www.youtube.com/watch?v=-ao_Kc_8rpE)
+
+[Google Accessibility tutorial](https://github.com/jkup/learn-a11y)
 
 [Google  - Accessibility Fundamentals with Rob Dodson] (https://www.youtube.com/watch?v=z8xUCzToff8)
 
@@ -41,6 +52,7 @@
 
 [Accessibility fundamentals](https://developers.google.com/web/fundamentals/accessibility/)
 
+## Accessibility Notes 
 
 1. Screen reader access 
 
@@ -48,7 +60,7 @@
       - Affordances offer or Affordances a person the opportunity to perform an action. 
       - Goal - Offer Affordances so non-sighted users can access our content.
 
-    1.2. How dows Chrome communicate with a sceen reader ?
+    1.2. How does Chrome communicate with a sceen reader ?
 
       ![alt text](./images/a11y_01.png)<br />
       ![alt text](./images/a11y_02.png)<br />
@@ -57,14 +69,12 @@
       ![alt text](./images/a11y_05.png)<br />
 
 
-    1.3. Implicit Semantics 
+    1.3. Use Implicit Semantics 
         - Similar to focus, native elements get rich semantics for free.
         - Examples 
           a. texfield
           b. button
           c. combobox 
-
-  ![alt text](./images/a11y_06.png)<br />
 
     1.4. Landmarks
       - Some elements act as landmarks. Screen readers can quickly jump to these sections on the page.
@@ -74,7 +84,7 @@
         c. <nav>
         d. <footer>
 
-  ![alt text](./images/a11y_07.png)<br />
+  
 
     1.5. Example site 
   
@@ -85,12 +95,10 @@
   ![alt text](./images/a11y_08.png)<br />
 
 
-    1.7. Don't make your life hard 
+    1.7. Don't make your life hard - Use the right element for the job
 
-  ![alt text](./images/a11y_09.png)<br />
-
-
-2. `WAI- ARIA`
+  
+2 `WAI- ARIA`
   
   The Web accessibility initiative - Accessible Rich Internet Applications (ARIA) specifications adds the ability to `modify and enhance the semantic meaning` of elements in the DOM.
 

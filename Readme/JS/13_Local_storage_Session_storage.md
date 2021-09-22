@@ -1,1 +1,0 @@
-[Referenec Local storage and Session storage link](https://javascript.info/localstorage)

@@ -1,5 +1,8 @@
 ### What is difference between session storage and local storage?
 
+[Referenec Local storage and Session storage link](https://javascript.info/localstorage)
+
+
 1. `localStorage` has a different expiration time, localStorage lasts until you delete it or the user deletes it. 
 
    `SessionStorage` will only be accessible while and by the window that created it is open. 
