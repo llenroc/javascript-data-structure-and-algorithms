@@ -1,21 +1,6 @@
 # Accessibility 
 
 
-
-
-## Benefits of accessibility and SEO
-
-1. More people can access your content
-2. A brave ne wworld of devices open for new possibilities 
-3. Content is easier to read and understand 
-4. Cleaner, more semantic markup
-5. Increases `findability` in serach engines 
-6. Increases `shareability` on social networks
-
-
-
-
-
 ## Basic rules 
 [Youtube - Accessible Web Design: What Is It & How To Do It](https://www.youtube.com/watch?v=-ao_Kc_8rpE)
 
@@ -24,15 +9,6 @@
 3. Form labels
 4. Alt tags with Images 
 5. Develop Correctly 
-
-
-## Tools to check accessibility
-1. Wave chrome extension 
-2. AA checker 
-3. Color extension
-4. Axe node package 
-
-
 
 
 ## Google Accessibility resources 

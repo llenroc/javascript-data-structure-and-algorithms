@@ -213,6 +213,13 @@ https://aerolab.co/blog/web-accessibility/
 
 > ARIA lets you fill in gaps in the accessibility tree.
 
+`<lable>` helps users understand the purpose of a control.
+
+`<label>` Control must be a child of <label> or targeted by an `IDRef` using the label's `for=""` attribute. Only works with native form elements.
+
+`<aria-label>` - A string to be used as the accessible label. Overrides any other native labelling mechanism.
+
+`<aria-labelledby>` - A refrence to an element (or elements) which will act as an accessible label. Overrides any other labelling mechanism including aria-label.
 
 
 ## Q:-  Meaning of tabindex="-1"
