@@ -3,6 +3,35 @@ TODO Google developer reference :-
 
 Accessibility :- https://www.youtube.com/watch?v=HtTyRajRuyY&index=30&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g
 
+Accessibility Example - https://dequeuniversity.com/library/
+
+## Sameer work in accessibility
+- I have enabled accessibility for UI table same as data table 
+    - Maintain the same table navigation behavior
+    - Announcment for Row and column header 
+    - User Aria to impelment that 
+
+- aria-label, aria-labelledby, aria-role
+- Semantic structure 
+- Heading levels
+- Alt tag 
+- labels and description 
+- Use Generic elements <a>, <button>, <input>, <select>, <textArea>, <iframe>
+- tabIndex = 0 (put element to norman flow), tabIndex = -1 (remove elemnet form normal flow), tabIndex = 1 and above (set navigation tab order)
+- label [ for - id ] , [ aria-describedby - id ] combination
+- Alt tag
+- sr-only, sr-only-focused
+
+## ARIA syntax 
+1. aria-lable 
+2. aria-labelledby
+3. aria-describedby
+4. role = "button", role = "group", role = "toolbar", role = "alert"
+5. aria-hidden
+6. aria-current="currentPageName" [ for breadcrumb ]
+7. aria-pressed, aria-disabled
+8. aria-expanded, aria-haspopup 
+
 ## Benefits of accessibility and SEO
 
 1. More people can access your content
@@ -35,7 +64,7 @@ Some of the things I look for are:
 And here are some of the tools I like to use:
 - Chrome aXe extension: https://goo.gl/67Bm24
 - Chrome accessibility devtools extension: https://goo.gl/DvAxi2
-- aXe-core: https://github.com/dequelabs/axe-core
+- `aXe-core` : https://github.com/dequelabs/axe-core
 
 
 ## Top 10 Accessibility tips
@@ -61,7 +90,7 @@ https://aerolab.co/blog/web-accessibility/
 3. Do not depend on color, Add descriptive message along with it.
 4. Do not block zoom
     - `<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">`
-    - Don't add [maximum-scale=1]
+    - Don't add `[maximum-scale=1]`
 5. Rediscover the alt attribute
     - compulsory to every img tag
     - empty alt attribute is completely valid
@@ -232,15 +261,18 @@ https://stackoverflow.com/questions/32911355/whats-the-tabindex-1-in-bootstrap-f
 
 > A tabindex="-1" value removes the element from the default navigation flow (i.e., a user cannot tab to it), but it allows it to receive programmatic focus, meaning focus can be set to it from a link or with scripting.** This can be very useful for elements that should not be tabbed to, but that may need to have focus set to them.
 
-> A good example is a modal dialog window - when opened, focus should be set to the dialog so a screen reader will begin reading and the keyboard will begin navigating within the dialog. Because the dialog (probably just a <div> element) is not focusable by default, assigning it tabindex="-1" allows focus to be set to it with scripting when it is presented.
+> A good example is a modal dialog window - when opened, focus should be set to the dialog so a screen reader will begin reading and the keyboard will begin navigating within the dialog. Because the dialog (probably just a `<div>` element) is not focusable by default, assigning it tabindex="-1" allows focus to be set to it with scripting when it is presented.
 
 > A value of -1 can also be useful in complex widgets and menus that utilize arrow keys or other shortcut keys to ensure that only one element within the widget is navigable with the tab key, but still allow focus to be set on other components within the widget.
 
 
 ## Some Accessibility tips 
 
-1. Use of class="sr-only" 
-2. Use of class="sr-only sr-only-focusable"
+1. Use of class="sr-only" [ This class hides an element in all devices except for the Screen Readers. ]
+2. Use of class="sr-only sr-only-focusable" [If this class is used on an hidden element with . sr-only class, then the element will be visible when focused by any thing like keyboard. ]
+
+  `Eg - traditional “skip” links`
+
 3. Alerts  => `[ role="alert"  and .sr-only ]`
 4. Non descriptive buttons `[type="button"  aria-label="Close",  aria-hidden="true"]`
 5. Badge `[ type="button" sr-only ]`
