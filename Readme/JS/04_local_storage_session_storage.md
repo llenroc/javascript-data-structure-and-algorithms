@@ -14,7 +14,11 @@
   - https://mydomain.com:8080/
   
 
-  All of the above URL's will not share the same storage. (Notice path of the web page does not affect the web storage)
+> All of the above URL's will not share the same storage. (Notice path of the web page does not affect the web storage) Below three things should be same.
+
+- `http protocol`
+- `domain`
+- `port`
 
 
 3. `Session storage` is different even for the document with same origin policy open in different tabs, so same web page open in two different tabs cannot share the same session storage.

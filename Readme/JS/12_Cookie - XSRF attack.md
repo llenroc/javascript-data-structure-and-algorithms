@@ -4,9 +4,9 @@
 
 `XSRF (cross-site request forgery)` attacks.
 
-> Cookies are small strings of data that are stored directly in the browser. They are a part of the HTTP protocol, defined by the RFC 6265 specification.
+> Cookies are `small strings of data` that are `stored directly in the browser`. They are a `part of the HTTP protocol`, defined by the RFC 6265 specification.
 
-> Cookies are usually set by a web-server using the response Set-Cookie HTTP-header. Then, the browser automatically adds them to (almost) every request to the same domain using the Cookie HTTP-header.
+> Cookies are usually `set by a web-server` using the `response Set-Cookie HTTP-header`. Then, the browser automatically adds them to (almost) every request to the same domain using the Cookie HTTP-header.
 
 
 ### One of the most widespread use cases is authentication:

@@ -2,10 +2,11 @@
 
 [WebAPI Interview Questions & Answers | How to resolve CORS issue in Web API?](https://www.youtube.com/watch?v=WZs3g6NlJYQ)
 
-CORS (Cross origin Resource Sharing) is a W3C standard that allows a server to relax the same-origin policy. Using CORS, a server can explicitly allow some cross origin requests while rejecting others. 
+CORS (Cross origin Resource Sharing) is a `W3C standard that allows a server to relax the same-origin policy`. Using CORS, a server can explicitly allow some cross origin requests while rejecting others. 
 
 
 `Access-Control-Allow-Origin`: https://javascript.info
+
 `Access-Control-Expose-Headers`: Content-Length,API-Key
 
 
@@ -23,4 +24,4 @@ If the server agrees to serve the requests, then it should respond with empty bo
 * `Access-Control-Allow-Origin` must be either * or the requesting origin, such as https://javascript.info, to allow it.
 * `Access-Control-Allow-Methods` must have the allowed method.
 * `Access-Control-Allow-Headers` must have a list of allowed headers.
-* Additionally, the header Access-Control-Max-Age may specify a number of seconds to cache the permissions. So the browser won’t have to send a preflight for subsequent requests that satisfy given permissions.
+* Additionally, the header `Access-Control-Max-Age` may specify a number of seconds to cache the permissions. So the browser won’t have to send a preflight for subsequent requests that satisfy given permissions.

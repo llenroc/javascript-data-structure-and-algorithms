@@ -11,16 +11,15 @@ Accessibility Example - https://dequeuniversity.com/library/
     - Announcment for Row and column header 
     - User Aria to impelment that 
 
-- aria-label, aria-labelledby, aria-role
 - Semantic structure 
 - Heading levels
 - Alt tag 
 - labels and description 
 - Use Generic elements `<a>, <button>, <input>, <select>, <textArea>, <iframe>`
-- tabIndex = 0 (put element to norman flow), tabIndex = -1 (remove elemnet form normal flow), tabIndex = 1 and above (set navigation tab order)
+- tabIndex = 0 (put element to normal flow), tabIndex = -1 (remove element form normal flow), tabIndex = 1 and above (set navigation tab order)
 - label [ for - id ] , [ aria-describedby - id ] combination
-- Alt tag
 - sr-only, sr-only-focused
+- Use Aria
 
 ## ARIA syntax 
 1. aria-lable 
@@ -66,6 +65,24 @@ And here are some of the tools I like to use:
 - Chrome accessibility devtools extension: https://goo.gl/DvAxi2
 - `aXe-core` : https://github.com/dequelabs/axe-core
 
+## Screen Reader Basics: VoiceOver 
+
+  [Keyboard shortcuts](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
+
+  - Mac buit-in screen reader - voice Over
+  - Open/ close -> `command + F5`
+  - rotor :- `VO + u`
+  - VO(Voice Over ) -> `Ctrl + alt(option)`
+
+  - Navigate :- `VO+ right arrow (>)`
+  - Heading :- `VO + command + H`
+  - click :- `VO + spaceBar`
+  - stop talking :- `Ctrl`
+  - VO increase decrease pitch :- `VO + command + up/down arrow`
+  - VO menu :- `VO + up/down arrow`
+
+  Focus voiceover on browser
+      - `VO + shift + down arrow`
 
 ## Top 10 Accessibility tips
 
@@ -73,7 +90,8 @@ https://aerolab.co/blog/web-accessibility/
 
 1. Use Implicit Semantics 
 
-  - Similar to focus, native elements get rich semantics for free.
+  > Similar to focus, native elements get rich semantics for free.
+
   - Examples 
 
     - texfield
@@ -81,12 +99,13 @@ https://aerolab.co/blog/web-accessibility/
     -  combobox 
 
 2. Landmarks
-      - Some elements act as landmarks. Screen readers can quickly jump to these sections on the page.
-      - Examples 
-        -  `<h1> ... <h6>`
-        -  `<main>`
-        -  `<nav>`
-        -  `<footer>`
+  > Some elements act as landmarks. Screen readers can quickly jump to these sections on the page.
+
+  - Examples 
+    -  `<h1> ... <h6>`
+    -  `<main>`
+    -  `<nav>`
+    -  `<footer>`
 3. Do not depend on color, Add descriptive message along with it.
 4. Do not block zoom
     - `<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">`
@@ -257,7 +276,11 @@ https://stackoverflow.com/questions/32911355/whats-the-tabindex-1-in-bootstrap-f
 
 > The tabindex attribute explicitly defines the navigation order for focusable elements (typically links and form controls) within a page. It can also be used to define whether elements should be focusable or not.
 
+### tabindex="0"
+
 > [Both] tabindex="0" and tabindex="-1" have special meaning and provide distinct  functionality in HTML. A value of 0 indicates that the element should be placed in the default navigation order. This allows elements that are not natively focusable  (such as `<div>, <span>, and <p>`) to receive keyboard focus. Of course one should generally  use links and form controls for all interactive elements, but this does allow other  elements to be focusable and trigger interaction.
+
+### tabindex="-1"
 
 > A tabindex="-1" value removes the element from the default navigation flow (i.e., a user cannot tab to it), but it allows it to receive programmatic focus, meaning focus can be set to it from a link or with scripting.** This can be very useful for elements that should not be tabbed to, but that may need to have focus set to them.
 
@@ -265,6 +288,18 @@ https://stackoverflow.com/questions/32911355/whats-the-tabindex-1-in-bootstrap-f
 
 > A value of -1 can also be useful in complex widgets and menus that utilize arrow keys or other shortcut keys to ensure that only one element within the widget is navigable with the tab key, but still allow focus to be set on other components within the widget.
 
+
+  - call focus method in JS for tabindex = -1
+
+  `document.querySelector('[tabindex="-1"]').focus()`
+
+  Example :- https://jsbin.com/mogoram/5/edit?html,output
+
+### tabindex > 0
+
+  > Anti pattern
+
+  > higher value , will get focus first .
 
 ## Some Accessibility tips 
 

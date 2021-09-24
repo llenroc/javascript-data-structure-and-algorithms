@@ -81,8 +81,11 @@
 
 6. Screen Reader Basics: VoiceOver 
 
+    [Keyboard shortcuts](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
+
     - Mac buit-in screen reader - voice Over
-    - Open/ close -> windows + F5
+    - Open/ close -> command + F5
+    - rotor :- VO + u
     - VO(Voice Over ) -> Ctrl + alt(option)
 
     - Navigate :- VO+ right arrow (>)
@@ -94,8 +97,6 @@
 
     Focus voiceover on browser
         - VO + shift + down arrow
-
-    rotor :- VO + u
 
 
 7. Why do semantics matter ?
