@@ -16,7 +16,7 @@ Accessibility Example - https://dequeuniversity.com/library/
 - Heading levels
 - Alt tag 
 - labels and description 
-- Use Generic elements <a>, <button>, <input>, <select>, <textArea>, <iframe>
+- Use Generic elements `<a>, <button>, <input>, <select>, <textArea>, <iframe>`
 - tabIndex = 0 (put element to norman flow), tabIndex = -1 (remove elemnet form normal flow), tabIndex = 1 and above (set navigation tab order)
 - label [ for - id ] , [ aria-describedby - id ] combination
 - Alt tag
